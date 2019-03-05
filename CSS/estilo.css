@@ -1,0 +1,18 @@
+body {
+	background-color: black;
+}
+
+h1 {
+	color: yellow;
+	text-align: center;
+	text-shadow: 3px 2px red;
+		text-decoration: underline;
+	text-decoration: overline;
+
+}
+
+p {
+	color:black;
+	font-family: verdana;
+	font-size: 20px;
+}
