@@ -1,14 +1,30 @@
 body {
-	background-color: black;
+	background-image: url('../img/fondo.png');
 }
 
-h1 {
-	color: yellow;
-	text-align: center;
-	text-shadow: 3px 2px red;
-		text-decoration: underline;
-	text-decoration: overline;
+header {
+	position: relative;
+	background-color: #DB33FF;
+	border: 7px solid white;
+	border-radius: 25px 25px 25px 25px;
+	margin: 35px 25px 0 25px;
+}
 
+header > img{
+	position: absolute;
+	top: 7px;
+	left: 20px;
+	width: 120px;
+}
+
+h1.tituloPagina {
+	font-family: Arial;
+	font-size: 60px;
+	font-style: italic;
+	text-align: center;
+	text-decoration-line: overline underline;
+	color: white;
+	text-shadow: 2px 2px black;
 }
 
 p {
