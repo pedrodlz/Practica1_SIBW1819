@@ -18,6 +18,26 @@ header > img{
 	width: 110px;
 }
 
+.zonaLateral {
+	float: left;
+	background-color: #DB33FF;
+	position: relative;
+	width: 25%;
+	border: 7px solid white;
+	border-radius: 25px 25px 25px 25px;
+	margin: 10px 25px 10px 25px;
+}
+
+.zonaPrincipal {
+	float: left;
+	background-color: #DB33FF;
+	width: 70%;
+	position: relative;
+	border: 7px solid white;
+	border-radius: 25px 25px 25px 25px;
+	margin: 10px 0 0 0;
+}
+
 footer {
 	background-color: #DB33FF;
 	border: 7px solid white;
@@ -25,7 +45,7 @@ footer {
 
 	position: fixed;
 	left: 25px;
-	bottom: 5px;
+	bottom: 10px;
 	right: 25px;
 }
 
@@ -47,4 +67,9 @@ p {
 	color:black;
 	font-family: verdana;
 	font-size: 20px;
+	margin-left: 15px;
+}
+
+p.footer {
+	font-size: 15px;
 }
