@@ -7,19 +7,35 @@ header {
 	background-color: #DB33FF;
 	border: 7px solid white;
 	border-radius: 25px 25px 25px 25px;
-	margin: 35px 25px 0 25px;
+	margin: 35px 25px 0;
+	height: 125px;
 }
 
 header > img{
 	position: absolute;
 	top: 7px;
 	left: 20px;
-	width: 120px;
+	width: 110px;
+}
+
+footer {
+	background-color: #DB33FF;
+	border: 7px solid white;
+	border-radius: 25px 25px 25px 25px;
+
+	position: fixed;
+	left: 25px;
+	bottom: 5px;
+	right: 25px;
+}
+
+footer > p{
+	text-align: center;
 }
 
 h1.tituloPagina {
 	font-family: Arial;
-	font-size: 60px;
+	font-size: 55px;
 	font-style: italic;
 	text-align: center;
 	text-decoration-line: overline underline;
