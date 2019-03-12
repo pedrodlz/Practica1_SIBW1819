@@ -6,9 +6,12 @@ header {
 	background-color: #DB33FF;
 	border: 7px solid white;
 	border-radius: 25px 25px 25px 25px;
-	margin: 35px 25px 0;
-	height: 125px;
+	/*margin: 35px 25px 0;
+	height: 125px;*/
+	width: 95%;
 	background-image: url('../img/gradiente1.jpg');
+	text-align: center;
+	margin: auto;
 }
 
 header > h1 {
@@ -30,11 +33,12 @@ header > img{
 
 .zonaLateral {
 	float:left;
-	background-color: #DB33FF;;
+	background-color: #DB33FF;
 	width: 200px;
 	border: 7px solid white;
 	border-radius: 25px 25px 25px 25px;
-	margin: 10px 25px 10px 25px;
+	margin-right: 15px;
+	margin-left: 10px;
 }
 
 .zonaLateral li {
@@ -50,16 +54,17 @@ header > img{
 	color: blue;
 }
 .zonaPrincipal {
+	float:left;
+	width: 85%;
 	background-color: #DB33FF;
 	border: 7px solid white;
 	border-radius: 25px 25px 25px 25px;
-	margin: 10px 25px 50px 250px;
 	background-image: url('../img/gradiente2.jpg');
 }
 
 .zonaPrincipal a{
 	border: 5px solid white;
-	margin: 10px 0 0 0;
+	margin: 10px 0;
 	border-radius: 25px 25px 25px 25px;
 }
 .zonaPrincipal a:hover{
@@ -72,8 +77,8 @@ header > img{
 }
 
 .zonaPrincipal img{
-	width: 200px;
-	height: 200px;
+	width: 90%;
+	max-width: 300px;
 }
 
 .zonaPrincipal section {
@@ -83,12 +88,19 @@ header > img{
 }
 
 .zonaCentral {
+	width: 95%;
+	margin: 25px auto;
+	background-color: red;
 }
 
 footer {
 	background-color: #DB33FF;
 	border: 7px solid white;
 	border-radius: 25px 25px 25px 25px;
+	width: 95%;
+	text-align: center;
+	margin: auto;
+	clear: both;
 }
 
 footer > address{
