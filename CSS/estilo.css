@@ -3,7 +3,6 @@ body {
 }
 
 header {
-	position: relative;
 	background-color: #DB33FF;
 	border: 7px solid white;
 	border-radius: 25px 25px 25px 25px;
@@ -23,7 +22,6 @@ header > h1 {
 }
 
 header > img{
-	position: absolute;
 	top: 7px;
 	left: 20px;
 	width: 110px;
@@ -32,9 +30,8 @@ header > img{
 
 .zonaLateral {
 	float:left;
-	background-color: #DB33FF;
-	position:sticky;
-	max-width: 200px;
+	background-color: #DB33FF;;
+	width: 200px;
 	border: 7px solid white;
 	border-radius: 25px 25px 25px 25px;
 	margin: 10px 25px 10px 25px;
@@ -54,8 +51,6 @@ header > img{
 }
 .zonaPrincipal {
 	background-color: #DB33FF;
-	position:relative;
-	max-width: 800px;
 	border: 7px solid white;
 	border-radius: 25px 25px 25px 25px;
 	margin: 10px 25px 50px 250px;
@@ -81,15 +76,19 @@ header > img{
 	height: 200px;
 }
 
+.zonaPrincipal section {
+	float: left;
+	width: 33%;
+	text-align: center;
+}
+
+.zonaCentral {
+}
+
 footer {
 	background-color: #DB33FF;
 	border: 7px solid white;
 	border-radius: 25px 25px 25px 25px;
-
-	position: fixed;
-	left: 32px;
-	bottom: 10px;
-	right: 32px;
 }
 
 footer > address{
