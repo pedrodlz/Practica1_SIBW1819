@@ -27,8 +27,6 @@ header > h1 {
 	font-style: italic;
 	text-align: center;
 	text-decoration-line: overline underline;
-	color: white;
-	text-shadow: 2px 2px black;
 }
 
 header > img{
@@ -67,6 +65,8 @@ header > img{
 
 .zonaLateral {
 	float:left;
+	position:sticky;
+	top: 0;
 	width: 23%;
 	background-color: #471975 ;
 	border: 7px solid white;
@@ -107,7 +107,7 @@ header > img{
 	background-color: blue;
 }
 
-.zonaPrincipal h2{
+.textoBlanco{
 	color: white;
 	text-shadow: 2px 2px black;
 }
@@ -127,16 +127,17 @@ header > img{
 	padding: 10px;
 }
 
-.evento > p{
-	color:white;
-	font-style: bold;
-	text-shadow: 2px 2px black;
+.img_ev{
+  	width: 25%;
+	float:right;
+  	background-color: white;
+  	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  	margin-bottom: 25px;
 }
 
-.evento > img{
+.icono > img{
 	float:right;
-	width:20%;
-	padding:10px;
+	width:50px;
 }
 
 footer {
@@ -148,10 +149,16 @@ footer {
 	clear: both;
 }
 
-footer > address{
-	text-align: center;
-	font-size: 15px;
-	color:white;
+.pie{
+	font-size: 10px;
 	font-style: bold;
-	text-shadow: 2px 2px black;
+}
+
+.pie p{
+	float:left;
+}
+
+footer div{
+	margin:0;
+	float:right;
 }
