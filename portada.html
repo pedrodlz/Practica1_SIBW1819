@@ -15,9 +15,18 @@
 
             <div class="menu">
                 <ul>
-                    <li><a href="eventos/sobreNosotros.html">Sobre nosotros</a>
+                    <li><a href="#home">Home</a></li>
                     <li><a href="#news">Noticias</a></li>
-                    <li>Home</li>
+                    <li><a href="eventos/sobreNosotros.html">Sobre nosotros</a>
+                    <li>                
+                        <!-- Búsqueda Google -->
+                        <FORM method=GET action="http://www.google.com/search">
+                            <INPUT TYPE=text name=q size=15 maxlength=255 value="">
+                            <INPUT TYPE=hidden name=hl value=es>
+                            <INPUT type=submit name=btnG VALUE="Google">
+                        </FORM>
+                        <!-- Búsqueda Google -->
+                    </li>  
                 </ul>
             </div>
         </header>
@@ -36,16 +45,7 @@
                 </ul>
             </div>
 
-            <main class="zonaPrincipal">
-                <div>
-                    <!-- Búsqueda Google -->
-                    <FORM method=GET action="http://www.google.com/search">
-                        <INPUT TYPE=text name=q size=31 maxlength=255 value="">
-                        <INPUT TYPE=hidden name=hl value=es>
-                        <INPUT type=submit name=btnG VALUE="Búsqueda Google">
-                    </FORM>
-                    <!-- Búsqueda Google -->
-                </div>               
+            <main class="zonaPrincipal">             
                 <h2> Eventos disponibles </h2>
                 <section >
                     <a href="eventos/evento1.html"><img src="img/mariokart.jpg" alt="Evento 1"></a>

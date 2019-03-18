@@ -33,20 +33,20 @@ header > img{
 
 .menu ul {
 	list-style-type: none;
-	margin-right: 3.5%;
+	margin: 0;
 	overflow: hidden;
 	background-color: indigo;
 	font-size: 1.6vw;
 }
 
 .menu li {
-  	float: right;
-  	padding:1%;
+  	float: left;
+  	padding:0.9%;
 }
 
 .menu li a {
+	display: block;
 	color: white;
-	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
 }
