@@ -37,6 +37,7 @@ header > img{
 	overflow: hidden;
 	background-color: indigo;
 	font-size: 1.6vw;
+	border-radius: 0 0 20px 0;
 }
 
 .menu li {
@@ -53,6 +54,11 @@ header > img{
 
 .menu li a:hover {
   	background-color: #111;
+}
+
+#google{
+	float:right;
+	padding-top: 2.1%;
 }
 
 .zonaCentral {
