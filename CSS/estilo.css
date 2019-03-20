@@ -143,6 +143,7 @@ header > img{
 
 .evento h2{
 	background-color: FireBrick;
+	border-radius: 15px 15px 0 0;
 	margin:0;
 }
 
@@ -169,7 +170,7 @@ header > img{
 
 .icono > img{
 	float:left;
-	width:6%;
+	width:6%
 }
 
 footer {
@@ -192,5 +193,29 @@ footer {
 
 footer div{
 	margin:0;
+	float:right;
+}
+
+#Comentarios {
+	float: right;
+	width: 30%;
+	background-color:  indigo ;
+	border: 6px solid white;
+	border-radius: 20px;
+	margin-left: 3%
+}
+
+#Comentarios h2{
+	background-color: FireBrick;
+	border-radius: 15px 15px 0 0;
+	margin:0;
+}
+
+.botonDespliega {
+	font-size: 1vw;
+	border-left: 1%;
+}
+
+button{
 	float:right;
 }

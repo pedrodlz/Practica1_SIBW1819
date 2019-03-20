@@ -6,6 +6,7 @@
         <title>Torneo Mario Kart</title>
         <meta charset = "UTF-8">
         <link rel="stylesheet" type="text/css" href="../CSS/estilo.css"></link> 
+        <script src="funciones.js" type="text/javascript"></script>
     </head>
 
     <body class="textoBlanco">
@@ -64,6 +65,16 @@
 		            </a>
 		        </div>
 	        </div>
+
+            <button class="botonDespliega" id="b1" type="button" onclick="funb1()"> < </button>
+            <button class="botonDespliega" id="b2" style="display:none;" type="button" onclick="document.getElementById('Comentarios').style.display='none'"> > </button>
+            <div class="Comentarios" id="Comentarios" style="display:none;">
+                    <div class="coment">
+                        <h2> COMENTARIOS </h2>
+                        <h4> Juan Francisco Díaz Moreno </h>
+                        <p> Qué página más chula! </p>
+                    </div>
+            </div>
 	    </div>
 
 		<footer class="pie">
