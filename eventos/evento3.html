@@ -5,7 +5,8 @@
     <head>
         <title>Salida AC3 Remastered</title>
         <meta charset = "UTF-8">
-        <link rel="stylesheet" type="text/css" href="../CSS/estilo.css"></link> 
+        <link rel="stylesheet" type="text/css" href="../CSS/estilo.css"></link>
+        <script src="../JS/funciones.js"></script>
     </head>
 
     <body class="textoBlanco">
@@ -63,6 +64,32 @@
 	            	<img src="../img/twitter.png" alt="twitter">
 	            </a>
 	        </div>
+
+            <button id="b_comentarios" type="button" onclick="boton()"> < </button>
+            <div id="Comentarios">
+                <h2> Comentarios </h2>
+                    <div class="coment">
+                        <p class="autor_com">pablito777</p>
+                        <p class="fecha_com">28/07/2018 12:02</p>
+                        <p class="texto_com">El mario kart es una **** ***** es mejor el fortnite</p>
+                    </div>
+                    <div class="coment">
+                        <p class="autor_com">eyquepasa </p>
+                        <p class="fecha_com">28/07/2018 20:32</p>
+                        <p class="texto_com">es mi juego favorito 100% recomendado el fortnite es de niños ratas</p>
+                    </div>
+                    <div class="coment" id="com_usuario">
+                        <p class="autor_com" id="nombre_usuario"></p>
+                        <p class="fecha_com" id="fecha_com_usuario"></p>
+                        <p class="texto_com" id="texto_com_usuario"></p>
+                    </div>
+                    <form id="formulario">
+                        <p>Nombre: <input type="text" id="nombre_f"></p>
+                        <p>Email: <input type="email" id="email_f"></p>
+                        <p>Cuerpo: <textarea id="cuerpo_f" onkeydown="censurar()"></textarea></p>
+                        <p><button id="b_enviar" type="button" onclick="publicar()">Enviar</button></p>
+                    </form>
+            </div>
 	    </div>
 
 		<footer class="pie">
