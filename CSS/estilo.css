@@ -7,7 +7,7 @@ body {
   	font-family: sans-serif;
 }
 
-.zonaLateral, header, .zonaPrincipal, .menu li a, #Comentarios h2, footer{
+.zonaLateral, header, .zonaPrincipal, .menu li a, #Comentarios h2, footer,.zonaPrincipal a:link{
 	color: white;
 	text-shadow: 2px 2px black;
 }
@@ -187,8 +187,21 @@ header > img{
 	text-shadow: 0;
 }
 
-.campo_comentario{
+.autor_com, .fecha_com, .texto_com{
 	background-color:WhiteSmoke;
+}
+
+.autor_com{
+	font-size: 14px;
+	font-style: bold;
+}
+
+.fecha_com{
+	font-style: italic;
+}
+
+.texto_com{
+	font-size: 12px;
 }
 
 #com_usuario{
@@ -199,6 +212,10 @@ header > img{
 	margin-top: 20px;
 	padding:10px;
 	background-color: DarkSlateBlue;
+}
+
+#cuerpo_f{
+	
 }
 
 .evento{

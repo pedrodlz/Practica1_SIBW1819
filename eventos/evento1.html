@@ -71,25 +71,25 @@
             <div id="Comentarios">
             	<h2> Comentarios </h2>
                     <div class="coment">
-                        <p class="campo_comentario">pablito777</p>
-                        <p class="campo_comentario">28/07/2018 12:02</p>
-                        <p class="campo_comentario">El mario kart es una puta mierda es mejor el fortnite</p>
+                        <p class="autor_com">pablito777</p>
+                        <p class="fecha_com">28/07/2018 12:02</p>
+                        <p class="texto_com">El mario kart es una **** ***** es mejor el fortnite</p>
                     </div>
                     <div class="coment">
-                        <p class="campo_comentario">eyquepasa </p>
-                        <p class="campo_comentario">28/07/2018 20:32</p>
-                        <p class="campo_comentario">es mi juego favorito 100% recomendado el fortnite es de niños ratas</p>
+                        <p class="autor_com">eyquepasa </p>
+                        <p class="fecha_com">28/07/2018 20:32</p>
+                        <p class="texto_com">es mi juego favorito 100% recomendado el fortnite es de niños ratas</p>
                     </div>
                     <div class="coment" id="com_usuario">
-                        <p class="campo_comentario" id="nombre_usuario"></p>
-                        <p class="campo_comentario" id="fecha_com_usuario"></p>
-                        <p class="campo_comentario" id="texto_com_usuario"></p>
+                        <p class="autor_com" id="nombre_usuario"></p>
+                        <p class="fecha_com" id="fecha_com_usuario"></p>
+                        <p class="texto_com" id="texto_com_usuario"></p>
                     </div>
                     <form id="formulario">
-                        Nombre: <input type="text" id="nombre">
-                        Email: <input type="email" id="email">
-                        Cuerpo: <textarea id="cuerpo"></textarea>
-                    	<button id="b_enviar" type="button" onclick="publicar()">Enviar</button>
+                        <p>Nombre: <input type="text" id="nombre_f"></p>
+                        <p>Email: <input type="email" id="email_f"></p>
+                        <p>Cuerpo: <textarea id="cuerpo_f" onkeydown="censurar()"></textarea></p>
+                    	<p><button id="b_enviar" type="button" onclick="publicar()">Enviar</button></p>
                     </form>
             </div>
 	    </div>
