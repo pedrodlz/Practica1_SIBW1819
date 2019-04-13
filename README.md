@@ -8,3 +8,6 @@ y para apagarla:
 - vagrant halt
 
 La direccion de la maquina es 127.0.0.1:2222
+
+Y para operar mas facilmente con la maquina basta con poner:
+- vagrant ssh
