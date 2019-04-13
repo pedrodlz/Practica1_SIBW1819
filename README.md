@@ -7,7 +7,7 @@ Para iniciar la maquina virtual basta con situarse en el directorio "virtual" y 
 y para apagarla:
 - vagrant halt
 
-La direccion de la maquina es 127.0.0.1:2222
+La direccion de la maquina es 127.0.0.1:8080
 
 Y para operar mas facilmente con la maquina basta con poner:
 - vagrant ssh
