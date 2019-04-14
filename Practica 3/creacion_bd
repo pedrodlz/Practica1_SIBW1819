@@ -1,10 +1,55 @@
 CREATE TABLE portada (
 	id VARCHAR(5), 
-	nombre VARCHAR(25), 
+	nombre VARCHAR(50), 
 	imagen VARCHAR(100), 
 	link VARCHAR(100), 
 	PRIMARY KEY (id)
  );
 
-INSERT INTO portada VALUES ('1', 'Torneo Mario Kart 8 Deluxe','img/1.jpg',null);
+INSERT INTO portada VALUES ('1', 'Torneo Mario Kart 8 Deluxe', 'img/1.jpg', 'http://localhost:8080/?evento=1');
 
+INSERT INTO portada VALUES ('2', 'Evento Pokémon GO', 'img/2.jpg', 'http://localhost:8080/?evento=2');
+
+INSERT INTO portada VALUES ('3', 'Salida Assassin\'s Creed III', 'img/3.jpg', 'http://localhost:8080/?evento=3');
+
+INSERT INTO portada VALUES ('4', 'Campeonato LOL', 'img/4.jpg', 'http://localhost:8080/?evento=4');
+
+INSERT INTO portada VALUES ('5', 'Mercado de juegos usados', 'img/5.jpg', 'http://localhost:8080/?evento=5');
+
+-----------------------------------------------------------------------------
+
+CREATE TABLE eventos (
+	id VARCHAR(5), 
+	nombre VARCHAR(50),
+	organizador VARCHAR(25),
+	fecha VARCHAR(30),
+	imagen VARCHAR(100),
+	imagen_cre VARCHAR(50),
+	texto TEXT, 
+	PRIMARY KEY (id)
+ );
+
+INSERT INTO eventos VALUES ('1','Torneo Mario Kart 8 Deluxe','Nintendo', '28/07/19 a las 19:00','img/1_1.png','Nintendo: Mario Kart','Mario Kart 8 Deluxe es un videojuego de carreras desarrollado y publicado por Nintendo para la consola Nintendo Switch. Es la undécima entrega de la serie Mario Kart, novena en consolas de Nintendo, lanzado mundialmente el 28 de abril de 2017. Cuenta con todo lo visto previamente en Mario Kart 8 (pistas, personajes, DLCs, vehículos...). Aunque no incluye nuevas pistas de carreras, incluye nuevos personajes y un mejorado modo batalla. Presentamos el cuarto torneo de Mario Kart 8 Deluxe dentro del Campeonato Nacional organizado por Nintendo España. Es el último de los 4 que se realizarán desde <a href="https://www.nintenderos.com/">Nintenderos.com</a> y dará comienzo el día 28 de julio a partir de las 19:00. Serán unas horas para correr todas las carreras y descubrir si eres tan bueno como para pasar a la siguiente ronda.');
+
+INSERT INTO eventos VALUES ('2','Evento Pokémon Go','Niantic', '19/03/19 - 26/03/19','img/2_1.png','Oddish','Niantic ha confirmado un nuevo evento para Pokémon GO: el evento de equinoccio.
+
+El evento se estrena el próximo 19 de marzo y dura hasta el 26 de marzo, tiempo durante el cual aparecerán más Pokémon de tipo Planta. Además, Lunatone y Solrock cambiarán de hemisferio.
+
+¡Es tu oportunidad para cazar un gran número de Pokémon! Además de los Pokémon satélite, consigue otros como Oddish, Exeggcute, Sunkern o Shroomish.');
+
+INSERT INTO eventos VALUES ('3','Salida Assassin\'s Creed III','Ubisoft', '29/03/19','img/3_1.jpg','Comparación','Ubisoft ha anunciado que la remasterización de este juego de PS3 saldrá a la venta a finales de marzo para PC, PS4 y XBOX One. Los usuarios de Nintendo Switch tendrán que esperar al 21 de mayo de este mismo año para poder disfrutar de este juego en su consola. Assassin\'s Creed III Remastered incluirá todos los DLC lanzados para el título original, soporte para resolución 4K y HDR y mejoras en las mecánicas de juego. El precio de este juego será de 39.99€. Además, podremos encontrar por 10€ más la Signature Edition, que incluirá además un steelbook exclusivo y dos litografías.');
+
+-----------------------------------------------------------------------------
+
+CREATE TABLE comentarios (
+	id VARCHAR(5), 
+	ip VARCHAR(16),
+	nombre VARCHAR(25),
+	correo VARCHAR(50),
+	fecha DATETIME,
+	cuerpo TEXT 
+ );
+
+ INSERT INTO comentarios VALUES ('1','152.015.224.132','pablito777','pabloh777@gmail.com','2018-07-28 12:02:24','El mario kart es una **** ***** es mejor el fortnite');
+
+  INSERT INTO comentarios VALUES ('1','145.245.143.133','eyquepasa','wikiperritos@gmail.com','2018-07-28 20:32:04','es mi juego favorito 100% recomendado el fortnite es de niños ratas');

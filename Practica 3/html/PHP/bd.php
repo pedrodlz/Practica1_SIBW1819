@@ -15,14 +15,16 @@
 		    exit;
 		}
 
+		$bd->set_charset("utf8");
+
 		return $bd;
 	}
 
-	function obtieneDatos(){
-		$seleccion = "SELECT * FROM portada";
+	function obtienePortada(){
+		$orden = "SELECT * FROM portada;";
 		$bd = conectaBD();
 
-		$consulta = $bd->query($seleccion);
+		$consulta = $bd->query($orden);
 		$num_filas = mysqli_num_rows($consulta);
 
 		if($num_filas > 0){
@@ -31,6 +33,26 @@
 				$resultado[$x] = mysqli_fetch_array($consulta);
 			}
 		}
+
+		return $resultado;
+	}
+
+	function obtieneEvento($num_evento){
+		$orden = "SELECT * FROM eventos WHERE id=" . $num_evento . ";";
+		$bd = conectaBD();
+
+		$consulta = $bd->query($orden);
+		$resultado = mysqli_fetch_array($consulta);
+
+		return $resultado;
+	}
+
+	function obtieneComentarios($num_evento){
+		$orden = "SELECT * FROM comentarios WHERE id=" . $num_evento . ";";
+		$bd = conectaBD();
+
+		$consulta = $bd->query($orden);
+		$resultado = mysqli_fetch_all($consulta,MYSQLI_BOTH);
 
 		return $resultado;
 	}

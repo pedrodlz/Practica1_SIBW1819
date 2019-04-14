@@ -1,32 +1,53 @@
 {% extends 'padre.html' %}
+{% block funciones %}
+<script src="../JS/funciones.js"></script>
+{% endblock %}
 {% block principal %}
-<h2> Torneo Mario Kart </h2>
-<h3> Nintendo </h3>
-<h4> 28/07/19 a las 19:00 </h4>
-<div id="img_ev1">
-    <img src="../img/mk1.png" alt="mario kart 1">
-    <div class="cred_foto"><p>Nintendo: Mario Kart</p></div>
+<div class="evento">
+    <h2>{{evento.nombre}}</h2>
+    <h3>{{evento.organizador}}</h3>
+    <h4>{{evento.fecha}}</h4>
+    <div id="img_ev1">
+        <img src={{evento.imagen}} alt="img_evento">
+        <div class="cred_foto"><p>{{evento.imagen_cre}}</p></div>
+    </div>
+    <div>
+        {{evento.texto}}
+    </div>
+    <div>
+    	<a class="icono" href="../imp/evento1_imprimir.html">
+        	<img src="../img/imprimir.jpeg" alt="imprimir">
+        </a>
+        <a class="icono" href="https://www.facebook.com">
+        	<img src="../img/facebook.png" alt="facebook">
+        </a>
+         <a class="icono" href="https://www.instagram.com/juanfrandm98">
+        	<img src="../img/instagram.png" alt="instagram">
+        </a>
+        <a class="icono" href="https://www.twitter.com/wikiperritos">
+        	<img src="../img/twitter.png" alt="twitter">
+        </a>
+    </div>
 </div>
-<div id="img_ev2">
-	<img src="../img/mk2.jpg" alt="mario kart 2">
-	<div class="cred_foto"><p>Nintendo: Mario Kart</p></div>
-</div>
-<div>
-    <p> Mario Kart 8 Deluxe es un videojuego de carreras desarrollado y publicado por Nintendo para la consola Nintendo Switch. Es la undécima entrega de la serie Mario Kart, novena en consolas de Nintendo, lanzado mundialmente el 28 de abril de 2017. Cuenta con todo lo visto previamente en Mario Kart 8 (pistas, personajes, DLCs, vehículos...). Aunque no incluye nuevas pistas de carreras, incluye nuevos personajes y un mejorado modo batalla.</p>
-    <p>Presentamos el cuarto torneo de Mario Kart 8 Deluxe dentro del Campeonato Nacional organizado por Nintendo España. Es el último de los 4 que se realizarán desde <a href="https://www.nintenderos.com/">Nintenderos.com</a> y dará comienzo el día 28 de julio a partir de las 19:00. Serán unas horas para correr todas las carreras y descubrir si eres tan bueno como para pasar a la siguiente ronda.</p>
-</div>
-<div>
-	<a class="icono" href="../imp/evento1_imprimir.html">
-    	<img src="../img/imprimir.jpeg" alt="imprimir">
-    </a>
-    <a class="icono" href="https://www.facebook.com">
-    	<img src="../img/facebook.png" alt="facebook">
-    </a>
-     <a class="icono" href="https://www.instagram.com/juanfrandm98">
-    	<img src="../img/instagram.png" alt="instagram">
-    </a>
-    <a class="icono" href="https://www.twitter.com/wikiperritos">
-    	<img src="../img/twitter.png" alt="twitter">
-    </a>
+{% endblock %}
+
+{% block zona_comentarios %}
+<button id="b_comentarios" type="button" onclick="boton()"> < </button>
+<div id="Comentarios">
+    <h2> Comentarios </h2>
+        {% for com in comentarios %}
+            <div class="coment">
+                <p class="autor_com">{{com["nombre"]}}</p>
+                <p class="fecha_com">{{com["fecha"]}}</p>
+                <p class="texto_com">{{com["cuerpo"]}}</p>
+            </div>
+        {% endfor %}
+
+        <form id="formulario">
+            <p>Nombre: <input type="text" id="nombre_f"></p>
+            <p>Email: <input type="email" id="email_f"></p>
+            <p>Cuerpo: <textarea id="cuerpo_f" onkeydown="censurar()"></textarea></p>
+            <p><button id="b_enviar" type="button" onclick="publicar()">Enviar</button></p>
+        </form>
 </div>
 {% endblock %}

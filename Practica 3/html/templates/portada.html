@@ -1,8 +1,10 @@
 {% extends 'padre.html' %}
 {% block principal %}
 <h2> Eventos disponibles </h2>
-<section >
-    <a href={{link}}><img src={{imagen}} alt={{id}}></a>
-    <a href="{{link}}">{{nombre}}</a>
-</section>
+    {% for evento in eventos %}
+        <section >
+            <a href={{evento.link}}><img src={{evento.imagen}} alt={{evento.id}}></a>
+            <a href="{{evento.link}}">{{evento.nombre}}</a>
+        </section>
+    {% endfor %}
 {% endblock %}

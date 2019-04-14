@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Eventos de Videojuegos</title>
 		<link rel="stylesheet" type="text/css" href="CSS/estilo.css"></link>
-	</head>
+	    {% block funciones %}{% endblock %}
+    </head>
 	<body>
         <header>
         	{% block cabecera %}
@@ -13,7 +14,7 @@
 
             <div class="menu">
                 <ul>
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="http://localhost:8080">Home</a></li>
                     <li><a href="#news">Noticias</a></li>
                     <li><a href="eventos/sobreNosotros.html">Sobre nosotros</a>
                     <li id="google">                
@@ -44,6 +45,9 @@
             	{% block principal %}
             	{% endblock %}
             </main>
+
+            {% block zona_comentarios %}
+            {% endblock %}
         </div>
 
 		<footer>

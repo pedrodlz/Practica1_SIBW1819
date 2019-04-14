@@ -9,7 +9,6 @@ body {
 
 .zonaLateral, header, .zonaPrincipal, .menu li a, #Comentarios h2, footer,.zonaPrincipal a:link{
 	color: white;
-	text-shadow: 2px 2px black;
 }
 
 header {
@@ -246,18 +245,7 @@ header > img{
 }
 
 #img_ev1{
-  	width: 23%;
-  	float:right;
-  	background-color: white;
-  	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  	margin: 5%;
-  	color: black;
-  	text-shadow: none;
-}
-
-#img_ev2{
-  	width: 23%;
-  	clear:both;
+  	width: 30%;
   	float:right;
   	background-color: white;
   	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
