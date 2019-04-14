@@ -1,0 +1,98 @@
+body {
+	color: black;
+}
+
+* {
+  	box-sizing: border-box;
+  	font-family: times;
+}
+
+header {
+	border: 6px solid black;
+	border-radius: 20px;
+	margin: 3%;
+	text-align: center;
+}
+
+header > h1 {
+	font-size: 5vw;
+	font-style: italic;
+	text-align: center;
+	text-decoration-line: overline underline;
+	color: black;
+}
+
+header > img{
+	float:right;
+	width: 7.8%;
+	margin: 3.5%;
+}
+
+.zonaLateral,.icono,.menu,#Comentarios,#b_comentarios{
+	display: none;
+}
+
+.zonaCentral {
+	margin: 3%;
+	overflow: hidden;
+	display:flex;
+}
+
+.zonaPrincipal {
+	width: 100%;
+	float:right;
+	border: 6px solid black;
+	border-radius: 20px;
+	text-align: center;
+	font-size:1.2vw;
+}
+
+.zonaPrincipal img{
+	width: 100%;
+}
+
+.zonaPrincipal {
+	display:table-cell;
+}
+
+.evento{
+	font-size: 2vw;
+}
+
+#img_ev1{
+  	width: 23%;
+  	float:right;
+  	background-color: white;
+  	margin: 5%;
+}
+
+#img_ev2{
+  	width: 23%;
+  	clear:both;
+  	float:right;
+  	background-color: white;
+  	margin: 5%;
+}
+
+footer {
+	border: 6px solid black;
+	border-radius: 15px;
+	text-align: center;
+	margin: 3%;
+	overflow: hidden;
+}
+
+
+.pie{
+	font-size: 1vw;
+	font-style: bold;
+}
+
+.pie p{
+	float:left;
+}
+
+footer div{
+	margin:0;
+	float:right;
+}

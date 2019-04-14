@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>Eventos de Videojuegos</title>
+		<link rel="stylesheet" type="text/css" href="CSS/estilo.css"></link>
+	</head>
+	<body>
+        <header>
+        	{% block cabecera %}
+            <img src="img/icon.png" alt="Icono de Videojugones">
+            <h1> VIDEOJUGONES </h1>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#news">Noticias</a></li>
+                    <li><a href="eventos/sobreNosotros.html">Sobre nosotros</a>
+                    <li id="google">                
+                        <FORM method=GET action="http://www.google.com/search">
+                            <INPUT TYPE=text name=q size=15 maxlength=255 value="">
+                            <INPUT TYPE=hidden name=hl value=es>
+                            <INPUT type=submit name=btnG VALUE="Google">
+                        </FORM>
+                    </li>  
+                </ul>
+            </div>
+            {% endblock %}
+        </header> 
+
+        <div class="zonaCentral">
+            <div class="zonaLateral">
+                <h2>Enlaces</h2>
+                <ul>
+                <li><a href="https://www.nintendo.es">Nintendo</a></li>
+                <li><a href="https://www.pokemon.com/es/">Pokemon</a></li>
+                <li><a href="https://www.minecraft.net/es-es/">Minecraft</a></li>
+                <li><a href="https://euw.leagueoflegends.com/es/">League of Legends</a></li>
+                <li><a href="https://etsiit.ugr.es/">ETSIIT</a></li>
+                </ul>
+            </div>
+
+            <main class="zonaPrincipal">
+            	{% block principal %}
+            	{% endblock %}
+            </main>
+        </div>
+
+		<footer>
+			{% block pie %}
+            <p>&copy; 2019</p>
+            <div>
+                <p> Contacto: pedrodominguez@correo.ugr.es | juanfrandm98@correo.ugr.es</p>
+            </div>
+            <div>
+                <p>Propietarios: Pedro Domínguez López | Juan Francisco Díaz Moreno |</p>
+            </div>
+            {% endblock %}
+        </footer>
+    </body>
+</html>
