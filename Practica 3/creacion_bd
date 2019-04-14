@@ -1,0 +1,10 @@
+CREATE TABLE portada (
+	id VARCHAR(5), 
+	nombre VARCHAR(25), 
+	imagen VARCHAR(100), 
+	link VARCHAR(100), 
+	PRIMARY KEY (id)
+ );
+
+INSERT INTO portada VALUES ('1', 'Torneo Mario Kart 8 Deluxe','img/1.jpg',null);
+
