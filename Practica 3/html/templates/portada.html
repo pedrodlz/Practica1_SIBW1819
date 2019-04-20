@@ -3,8 +3,8 @@
 <h2> Eventos disponibles </h2>
     {% for evento in eventos %}
         <section >
-            <a href={{evento.link}}><img src={{evento.imagen}} alt={{evento.id}}></a>
-            <a href="{{evento.link}}">{{evento.nombre}}</a>
+            <a href="http://localhost:8080/index.php?evento={{evento.id}}"><img src={{evento.imagen}} alt={{evento.id}}></a>
+            <a href="http://localhost:8080/index.php?evento={{evento.id}}">{{evento.nombre}}</a>
         </section>
     {% endfor %}
 {% endblock %}

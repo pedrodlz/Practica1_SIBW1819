@@ -12,39 +12,7 @@ function boton(){
 	}
 }
 
-function publicar(){
-	
-	if(window.getComputedStyle(com_usuario).display === 'none'){
-
-		var autor = document.getElementById("nombre_f").value;
-		var texto = document.getElementById("cuerpo_f").value;
-		var email = document.getElementById("email_f").value;
-
-		if(autor.length === 0 || texto.length === 0 || email.length === 0){
-			alert("Tiene que rellenar todos los campos");
-		}
-		else{
-			var validar = /\S+@\S+\.\S/;
-
-			if(validar.test(email)){
-				var fecha = new Date();
-				var fecha_s = "" + fecha.getDate() + "/" + fecha.getMonth() + "/" + fecha.getFullYear() + " " + fecha.getHours() + ":" + fecha.getMinutes();
-
-				document.getElementById('nombre_usuario').innerHTML= autor;
-				document.getElementById('fecha_com_usuario').innerHTML= fecha_s;
-				document.getElementById('texto_com_usuario').innerHTML= texto;
-
-				document.getElementById('com_usuario').style.display='block';
-			}
-			else{
-				alert("Email no valido");
-			}
-		}
-	}
-}
-
-function censurar(){
-	var prohibidas = ["mierda", "puta", "coño", "cojones", "subnormal", "gilipollas", "polla", "coño"]
+function censurar(prohibidas){
 	var filtro = new RegExp(prohibidas.join("|"),"i");
 	var texto = document.getElementById("cuerpo_f").value;
 
@@ -60,4 +28,38 @@ function censurar(){
 	});
 
 	document.getElementById("cuerpo_f").value = texto;
+}
+
+function compartir(rs,nombre,imagen){
+
+	if (document.getElementById) {
+		w = screen.availWidth;
+		h = screen.availHeight;
+	} 
+
+
+	var popW = 500, popH = 400;
+	var leftPos = 500;
+	var topPos = 300;
+
+
+	msgWindow = window.open('','popup','width=' + popW + ',height=' + popH + 
+	                     ',top=' + topPos + ',left=' + leftPos + ',scrollbars=yes');
+
+msgWindow.document.write 
+    ('<HTML>'+
+    	'<HEAD>'+
+    		'<TITLE>Centered Window</TITLE>'+
+    		'<link rel="stylesheet" type="text/css" href="CSS/estilo.css"></link>'+
+    	'</HEAD>'+
+    	'<BODY>'+
+    		'<FORM NAME="form1" id="pop_up">' +
+    			'<div><p>Se publicará en '+rs+' el siguiente mensaje:</p>'+
+				'<p>'+nombre+'</p>'+
+				'<p>Vía @videojugones</p>'+
+				'<img src="'+imagen+'"></div>' +
+    			'<INPUT TYPE="button" VALUE="Aceptar" onClick="window.close();">'+
+    		'</FORM>'+
+    	'</BODY>'+
+    '</HTML>');
 }

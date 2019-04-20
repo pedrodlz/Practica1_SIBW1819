@@ -1,55 +1,210 @@
-CREATE TABLE portada (
-	id VARCHAR(5), 
-	nombre VARCHAR(50), 
-	imagen VARCHAR(100), 
-	link VARCHAR(100), 
-	PRIMARY KEY (id)
- );
-
-INSERT INTO portada VALUES ('1', 'Torneo Mario Kart 8 Deluxe', 'img/1.jpg', 'http://localhost:8080/?evento=1');
-
-INSERT INTO portada VALUES ('2', 'Evento Pokémon GO', 'img/2.jpg', 'http://localhost:8080/?evento=2');
-
-INSERT INTO portada VALUES ('3', 'Salida Assassin\'s Creed III', 'img/3.jpg', 'http://localhost:8080/?evento=3');
-
-INSERT INTO portada VALUES ('4', 'Campeonato LOL', 'img/4.jpg', 'http://localhost:8080/?evento=4');
-
-INSERT INTO portada VALUES ('5', 'Mercado de juegos usados', 'img/5.jpg', 'http://localhost:8080/?evento=5');
-
------------------------------------------------------------------------------
 
 CREATE TABLE eventos (
 	id VARCHAR(5), 
 	nombre VARCHAR(50),
 	organizador VARCHAR(25),
 	fecha VARCHAR(30),
+	texto TEXT,
 	imagen VARCHAR(100),
-	imagen_cre VARCHAR(50),
-	texto TEXT, 
+	fecha_p_m DATETIME,
 	PRIMARY KEY (id)
  );
 
-INSERT INTO eventos VALUES ('1','Torneo Mario Kart 8 Deluxe','Nintendo', '28/07/19 a las 19:00','img/1_1.png','Nintendo: Mario Kart','Mario Kart 8 Deluxe es un videojuego de carreras desarrollado y publicado por Nintendo para la consola Nintendo Switch. Es la undécima entrega de la serie Mario Kart, novena en consolas de Nintendo, lanzado mundialmente el 28 de abril de 2017. Cuenta con todo lo visto previamente en Mario Kart 8 (pistas, personajes, DLCs, vehículos...). Aunque no incluye nuevas pistas de carreras, incluye nuevos personajes y un mejorado modo batalla. Presentamos el cuarto torneo de Mario Kart 8 Deluxe dentro del Campeonato Nacional organizado por Nintendo España. Es el último de los 4 que se realizarán desde <a href="https://www.nintenderos.com/">Nintenderos.com</a> y dará comienzo el día 28 de julio a partir de las 19:00. Serán unas horas para correr todas las carreras y descubrir si eres tan bueno como para pasar a la siguiente ronda.');
+INSERT INTO eventos VALUES ('1','Torneo Mario Kart 8 Deluxe','Nintendo', '28/07/19 a las 19:00','Mario Kart 8 Deluxe es un videojuego de carreras desarrollado y publicado por Nintendo para la consola Nintendo Switch. Es la undécima entrega de la serie Mario Kart, novena en consolas de Nintendo, lanzado mundialmente el 28 de abril de 2017. Cuenta con todo lo visto previamente en Mario Kart 8 (pistas, personajes, DLCs, vehículos...). Aunque no incluye nuevas pistas de carreras, incluye nuevos personajes y un mejorado modo batalla. Presentamos el cuarto torneo de Mario Kart 8 Deluxe dentro del Campeonato Nacional organizado por Nintendo España. Es el último de los 4 que se realizarán desde <a href="https://www.nintenderos.com/">Nintenderos.com</a> y dará comienzo el día 28 de julio a partir de las 19:00. Serán unas horas para correr todas las carreras y descubrir si eres tan bueno como para pasar a la siguiente ronda.','img/1');
 
-INSERT INTO eventos VALUES ('2','Evento Pokémon Go','Niantic', '19/03/19 - 26/03/19','img/2_1.png','Oddish','Niantic ha confirmado un nuevo evento para Pokémon GO: el evento de equinoccio.
+INSERT INTO eventos VALUES ('2','Evento Pokémon Go','Niantic', '19/03/19 - 26/03/19','Niantic ha confirmado un nuevo evento para Pokémon GO: el evento de equinoccio.
 
 El evento se estrena el próximo 19 de marzo y dura hasta el 26 de marzo, tiempo durante el cual aparecerán más Pokémon de tipo Planta. Además, Lunatone y Solrock cambiarán de hemisferio.
 
-¡Es tu oportunidad para cazar un gran número de Pokémon! Además de los Pokémon satélite, consigue otros como Oddish, Exeggcute, Sunkern o Shroomish.');
+¡Es tu oportunidad para cazar un gran número de Pokémon! Además de los Pokémon satélite, consigue otros como Oddish, Exeggcute, Sunkern o Shroomish.','img/2');
 
-INSERT INTO eventos VALUES ('3','Salida Assassin\'s Creed III','Ubisoft', '29/03/19','img/3_1.jpg','Comparación','Ubisoft ha anunciado que la remasterización de este juego de PS3 saldrá a la venta a finales de marzo para PC, PS4 y XBOX One. Los usuarios de Nintendo Switch tendrán que esperar al 21 de mayo de este mismo año para poder disfrutar de este juego en su consola. Assassin\'s Creed III Remastered incluirá todos los DLC lanzados para el título original, soporte para resolución 4K y HDR y mejoras en las mecánicas de juego. El precio de este juego será de 39.99€. Además, podremos encontrar por 10€ más la Signature Edition, que incluirá además un steelbook exclusivo y dos litografías.');
+INSERT INTO eventos VALUES ('3','Salida Assassin\'s Creed III','Ubisoft', '29/03/19','Ubisoft ha anunciado que la remasterización de este juego de PS3 saldrá a la venta a finales de marzo para PC, PS4 y XBOX One. Los usuarios de Nintendo Switch tendrán que esperar al 21 de mayo de este mismo año para poder disfrutar de este juego en su consola. Assassin\'s Creed III Remastered incluirá todos los DLC lanzados para el título original, soporte para resolución 4K y HDR y mejoras en las mecánicas de juego. El precio de este juego será de 39.99€. Además, podremos encontrar por 10€ más la Signature Edition, que incluirá además un steelbook exclusivo y dos litografías.','img/3');
 
 -----------------------------------------------------------------------------
 
-CREATE TABLE comentarios (
-	id VARCHAR(5), 
+CREATE TABLE tiene_c (
+	id VARCHAR(5),
 	ip VARCHAR(16),
 	nombre VARCHAR(25),
 	correo VARCHAR(50),
 	fecha DATETIME,
-	cuerpo TEXT 
+	cuerpo TEXT,
+	PRIMARY KEY(id)
  );
 
  INSERT INTO comentarios VALUES ('1','152.015.224.132','pablito777','pabloh777@gmail.com','2018-07-28 12:02:24','El mario kart es una **** ***** es mejor el fortnite');
 
   INSERT INTO comentarios VALUES ('1','145.245.143.133','eyquepasa','wikiperritos@gmail.com','2018-07-28 20:32:04','es mi juego favorito 100% recomendado el fortnite es de niños ratas');
+
+-----------------------------------------------------------------------------
+
+
+CREATE TABLE video(
+	enlace_v VARCHAR(100),
+	PRIMARY KEY(enlace_v)
+);
+
+INSERT INTO video VALUES ('vid/mario_kart_video');
+
+CREATE TABLE otras(
+	enlace_o VARCHAR(100),
+	nombre VARCHAR(25),
+	contenido TEXT,
+	PRIMARY KEY(enlace_o)
+);
+
+INSERT INTO otras VALUES('sobreNosotros','Sobre nosotros','Somos dos estudiantes de la Universidad de Granada que estudian 3º de Ingeniería Informática, en la especialidad de Ingeniería del Software.Esta practica ha sido desarrollada para la asignatura de Sistemas de Información Basados en Web (SIBW). Si quieres contactar con nosotros para información o contrato, no dudes en hacerlo en nuestros correos electrónicos: Pedro Domínguez López: pedrodominguez@correo.ugr.es y Juan Francisco Díaz Moreno: juanfrandm98@correo.ugr.es');
+
+INSERT INTO otras VALUES('changelog','Cambios','Practica 3: Se tendrán en cuenta los siguientes aspectos:
+-Arquitectura del sistema: MVC (10 %)
+-Identificamos al menos 3 tipos de elementos que pueden ser accesibles
+(8 %)
+•Evento: Con la información que ya se ha comentado en prácticas
+anteriores. No hace falta añadir más de 5 o 6 eventos: los necesarios
+para que los listados que se muestren tengan un aspecto razonable.
+• Página de información general: Son páginas con información ge-
+neral sobre el sitio, como por ejemplo, la página de contacto, página
+de los creadores el sitio, información legal, etc. El contenido de dichas
+páginas debe estar guardado en la BD.
+• Etiquetas: Cada evento podrá tener una o más etiquetas, de manera
+que luego se podrán listar los eventos que estén ligados a una etiqueta
+particular.
+-Uso de Twig como motor de plantillas. Las plantillas usan correctamente
+el mecanismo de herencia (10 %)
+-Usa GET con un id de evento o páginas (2 %)
+-Respecto a los comentarios, en la BD se guardan los siguientes datos: (5 %)
+• Evento comentado
+• Dirección IP utilizada
+• Nombre
+• Correo electrónico del usuario que hace el comentario
+• Fecha y hora del comentario
+• Texto del comentario
+-En la BD se guarda la lista de palabras prohibidas y se usa para la fun-
+cionalidad correspondiente (2 %)
+-Usa POST para datos del formulario (3 %)
+-Validación en servidor de TODAS las variables GET y POST (independien-
+temente de las validaciones Javascript, que un atacante se puede saltar
+fácilmente) (10 %)
+-En botones de TW y FB se muestra una ventana emergente de Javascript
+con el siguiente mensaje: (5 %)
+‘‘Se publicará en Twitter (o Facebook, según corresponda) el
+siguiente mensaje:
+TEXTO DEL MENSAJE’’
+La ventana se cerrará pulsando dentro de ella en una opción denominada
+Aceptar.
+El TEXTO DEL MENSAJE anterior contiene:
+• El tı́tulo del evento
+• Vı́a @elnombredevuestrositio
+• La foto del evento
+-En la página evento imprimir: (5 %)
+• Arriba a la izquierda aparece el logotipo
+• El evento se muestra con foto grande a todo lo ancho
+• El texto está a dos columnas
+• Si hay vı́deos, se pone su URL
+-En cada evento se ve la fecha de publicación y la fecha de última modifi-
+cación (3 %)
+-Se cuida la estética, con contenido y texto limpio (sólo se permite negrita), y se evitan otros aspectos de formato en el texto (2 %)
+-Se cuida la seguridad del sistema: (10 %)
+• Prevenir inyecciones de SQL o de otro código
+• El usuario de conexión con la BD es distinto de root
+• El usuario y contraseña de conexión no está incrustado en varios
+sitios
+• Conexiones a la BD (1 por petición HTTP, no por consulta)
+• Uso de clase especı́fica para la gestión de la BD (mejor con interfaz
+mysqli orientado a objetos)
+-Hay galerı́a de fotos (en al menos un evento) (5 %)
+-Usa clases y métodos de clase (2 %)
+-La información de la BD está en tablas bien estructuradas (3 %)
+-Uso de sesiones/HTML5 storage (5 %)
+-Menú dinámico (a partir de datos en la BD) (5 %)
+-Hay posibilidad de incluir vı́deos (5 %)
+-Extras (10 %)');
+
+CREATE TABLE etiquetas(
+	nombre VARCHAR(30),
+	PRIMARY KEY(nombre)
+);
+
+INSERT INTO etiquetas VALUES ('Nintendo');
+INSERT INTO etiquetas VALUES ('Multijugador');
+INSERT INTO etiquetas VALUES ('+3');
+INSERT INTO etiquetas VALUES ('Mario Kart');
+INSERT INTO etiquetas VALUES ('Pokemon');
+INSERT INTO etiquetas VALUES ('Realidad Aumentada');
+INSERT INTO etiquetas VALUES ('Telefonos');
+INSERT INTO etiquetas VALUES ('Consola');
+INSERT INTO etiquetas VALUES ('Comparativa');
+INSERT INTO etiquetas VALUES ('Niantic');
+INSERT INTO etiquetas VALUES ('Ubisoft');
+INSERT INTO etiquetas VALUES ('Assasin\'s Creed');
+INSERT INTO etiquetas VALUES ('League of Legends');
+INSERT INTO etiquetas VALUES ('Riot Games');
+INSERT INTO etiquetas VALUES ('MOBA');
+INSERT INTO etiquetas VALUES ('PC');
+
+
+CREATE TABLE tiene_i(
+	enlace_i VARCHAR(100),
+	id VARCHAR(5),
+	PRIMARY KEY (enlace_i)
+);
+
+INSERT INTO tiene_i VALUES ('img/1_1','1','Nintendo: Mario Kart');
+INSERT INTO tiene_i VALUES ('img/1_2','1','Nintendo: Mario Kart');
+INSERT INTO tiene_i VALUES ('img/1_3','1','Nintendo: Mario Kart');
+INSERT INTO tiene_i VALUES ('img/1_4','1','Nintendo: Mario Kart');
+INSERT INTO tiene_i VALUES ('img/2_1','2','Oddish');
+INSERT INTO tiene_i VALUES ('img/3_1','3','Comparacion');
+INSERT INTO tiene_i VALUES ('img/4_1','4','League of Legends');
+
+CREATE TABLE tiene_e(
+	nombre VARCHAR(30),
+	id VARCHAR(5),
+	PRIMARY KEY (id,nombre)
+);
+
+INSERT INTO tiene_e VALUES ('Nintendo','1');
+INSERT INTO tiene_e VALUES ('Multijugador','1');
+INSERT INTO tiene_e VALUES ('+3','1');
+INSERT INTO tiene_e VALUES ('Mario Kart','1');
+INSERT INTO tiene_e VALUES ('Pokemon','2');
+INSERT INTO tiene_e VALUES ('Realidad Aumentada','2');
+INSERT INTO tiene_e VALUES ('Telefonos','2');
+INSERT INTO tiene_e VALUES ('Consola','1');
+INSERT INTO tiene_e VALUES ('Comparativa','3');
+INSERT INTO tiene_e VALUES ('Consola','3');
+INSERT INTO tiene_e VALUES ('PC','3');
+INSERT INTO tiene_e VALUES ('Niantic','2');
+INSERT INTO tiene_e VALUES ('Ubisoft','3');
+INSERT INTO tiene_e VALUES ('Assasin\'s Creed','3');
+INSERT INTO tiene_e VALUES ('League of Legends','4');
+INSERT INTO tiene_e VALUES ('Riot Games','4');
+INSERT INTO tiene_e VALUES ('MOBA','4');
+INSERT INTO tiene_e VALUES ('PC','4');
+
+
+CREATE TABLE tiene_v(
+	enlace_v VARCHAR(100),
+	id VARCHAR(5),
+	PRIMARY KEY (enlace_v)
+);
+
+INSERT INTO tiene_v VALUES ('vid/mario_kart_video','1');
+
+
+
+----------------------------------------------------------------------------
+
+
+CREATE TABLE prohibidas(
+	palabra VARCHAR(23)
+);
+
+INSERT INTO prohibidas VALUES ('mierda');
+INSERT INTO prohibidas VALUES ('puta');
+INSERT INTO prohibidas VALUES ('coño');
+INSERT INTO prohibidas VALUES ('cojones');
+INSERT INTO prohibidas VALUES ('subnormal');
+INSERT INTO prohibidas VALUES ('gilipollas');
+INSERT INTO prohibidas VALUES ('polla');
+INSERT INTO prohibidas VALUES ('hijo de puta');

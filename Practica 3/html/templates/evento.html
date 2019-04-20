@@ -1,32 +1,62 @@
 {% extends 'padre.html' %}
 {% block funciones %}
 <script src="../JS/funciones.js"></script>
+<script src="../JS/galeria.js"></script>
+
 {% endblock %}
 {% block principal %}
 <div class="evento">
     <h2>{{evento.nombre}}</h2>
-    <h3>{{evento.organizador}}</h3>
-    <h4>{{evento.fecha}}</h4>
-    <div id="img_ev1">
-        <img src={{evento.imagen}} alt="img_evento">
-        <div class="cred_foto"><p>{{evento.imagen_cre}}</p></div>
+    <div id="contenido_ev">
+        <h3>{{evento.organizador}}</h3>
+        <h4>{{evento.fecha}}</h4>
+
+        <a href="{{evento.imagenes[0].enlace_i}}">
+            <div id="img_ev1">
+                <img src={{evento.imagenes[0].enlace_i}} alt="img_evento">
+                <div class="cred_foto"><p>{{evento.imagenes[0].creditos}}</p></div>
+            </div>
+        </a>
+
+        <div id="cuerpo_evento">
+            {{evento.texto|raw|nl2br}}
+        </div>
+
+        {% if evento.imagenes|length >1 %}
+        <form name="galeria" id="galeria_todo">
+            <input type="button" value=">>" onclick="adelante({{evento.imagenes|json_encode()}})">
+            <img src="../img/{{evento.id}}_1" id="galeria">
+            <input type="button" value="<<" onclick="atras({{evento.imagenes|json_encode()}})">
+        </form>
+        {% endif %}
+
+        {% if evento.video is not empty %}
+        <video id="video_evento" src="{{evento.video}}" type="video/mp4" controls>
+            Tu navegador no implementa el elemento <code>video</code>.
+        </video>
+        <div id="url_video">URL video: {{evento.video}}</div>            
+        {% endif %}
+
+        {% if evento.etiquetas is not empty %}
+        <div id="etiquetas">
+            <p>Etiquetas: |
+            {% for etiq in evento.etiquetas %}
+                {{etiq}} |
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        <div id="fecha_p_m">
+            <p>Fecha de publicacion o ultima modificacion: {{evento.fecha_p_m}}</p>
+        </div>
     </div>
-    <div>
-        {{evento.texto}}
-    </div>
-    <div>
-    	<a class="icono" href="../imp/evento1_imprimir.html">
+
+    <div id="rrss">
+    	<a class="icono" href="http://localhost:8080/index.php?imp={{evento.id}}">
         	<img src="../img/imprimir.jpeg" alt="imprimir">
         </a>
-        <a class="icono" href="https://www.facebook.com">
-        	<img src="../img/facebook.png" alt="facebook">
-        </a>
-         <a class="icono" href="https://www.instagram.com/juanfrandm98">
-        	<img src="../img/instagram.png" alt="instagram">
-        </a>
-        <a class="icono" href="https://www.twitter.com/wikiperritos">
-        	<img src="../img/twitter.png" alt="twitter">
-        </a>
+        <input type="button" class="icono" id="facebook" onClick="compartir('Facebook','{{evento.nombre}}','{{evento.imagenes[0].enlace_i}}')">
+        <input type="button" class="icono" id="twitter" onClick="compartir('Twitter','{{evento.nombre}}','{{evento.imagenes[0].enlace_i}}')">
     </div>
 </div>
 {% endblock %}
@@ -43,11 +73,13 @@
             </div>
         {% endfor %}
 
-        <form id="formulario">
-            <p>Nombre: <input type="text" id="nombre_f"></p>
-            <p>Email: <input type="email" id="email_f"></p>
-            <p>Cuerpo: <textarea id="cuerpo_f" onkeydown="censurar()"></textarea></p>
-            <p><button id="b_enviar" type="button" onclick="publicar()">Enviar</button></p>
+        <div id="mensaje_error">{{error}}</div>
+
+        <form action="PHP/form.php/?id={{evento.id}}" id="formulario" method="post">
+            <p>Nombre: <input type="text" class="campos" name="nombre_f"/></p>
+            <p>Email: <input type="email" class="campos" name="email_f"/></p>
+            <p>Cuerpo: <textarea name="cuerpo_f" id="cuerpo_f" onkeydown="censurar({{prohibidas|json_encode()}})"/></textarea></p>
+            <p><input type="submit" id="b_enviar" value="Enviar"/></p>
         </form>
 </div>
 {% endblock %}

@@ -23,22 +23,32 @@ header > h1 {
 }
 
 header > img{
-	float:right;
+	float:left;
 	width: 7.8%;
 	margin: 3.5%;
 }
 
-.zonaLateral,.icono,.menu,#Comentarios,#b_comentarios{
+.izquierda,.icono,.menu,#Comentarios,#b_comentarios,#galeria_todo,#b_comentarios,#video_evento{
 	display: none;
 }
 
-.zonaCentral {
+a:link {
+	text-decoration: none;
+  	color: black;
+}
+
+a:visited {
+	text-decoration: none;
+	color: black;
+}
+
+.cuerpo {
 	margin: 3%;
 	overflow: hidden;
 	display:flex;
 }
 
-.zonaPrincipal {
+.derecha {
 	width: 100%;
 	float:right;
 	border: 6px solid black;
@@ -47,12 +57,22 @@ header > img{
 	font-size:1.2vw;
 }
 
-.zonaPrincipal img{
+.derecha img{
 	width: 100%;
 }
 
-.zonaPrincipal {
+.derecha {
 	display:table-cell;
+}
+
+#contenido_ev{
+	padding:0 20px 20px 20px;
+}
+
+#cuerpo_evento{
+	column-count: 2;
+	column-gap: 5%;
+	column-rule-style: solid;
 }
 
 .evento{
@@ -60,19 +80,23 @@ header > img{
 }
 
 #img_ev1{
-  	width: 23%;
-  	float:right;
+  	width: 100%;
   	background-color: white;
-  	margin: 5%;
 }
 
-#img_ev2{
-  	width: 23%;
-  	clear:both;
-  	float:right;
-  	background-color: white;
-  	margin: 5%;
+#url_video{
+	margin-top: 3%;
 }
+
+#etiquetas{
+	font-size:18px;
+}
+
+#fecha_p_m{
+	float:right;
+	font-size:15px;
+}
+
 
 footer {
 	border: 6px solid black;
@@ -80,15 +104,11 @@ footer {
 	text-align: center;
 	margin: 3%;
 	overflow: hidden;
-}
-
-
-.pie{
-	font-size: 1vw;
+	font-size: 1.2vw;
 	font-style: bold;
 }
 
-.pie p{
+footer p{
 	float:left;
 }
 
