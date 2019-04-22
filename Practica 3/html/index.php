@@ -10,7 +10,6 @@ $twig = new \Twig\Environment($loader,[ ]);
 	0 -> "ID de evento no valido"
 	1 -> "No existe evento con ese id"
 	2 -> "No se han enviado todos los campos"
-	3 -> "Nombre no valido"
 	4 -> "Email no valido"
 	5 -> "Tiene que rellenar todos los campos"
 	6 -> "Comentario añadido con exito!"
@@ -19,12 +18,20 @@ $twig = new \Twig\Environment($loader,[ ]);
 
 //obtiene el numero de evento a mostrar
 $num_evento = $_GET['evento'];
+
+//Num de evento a imprimir
 $imp_evento = $_GET['imp'];
+
+//nombre de la pagina generica
 $nombre_gen = $_GET['general'];
 
+//el menu
 $otras = obtieneGeneral($bd);
 
-//si no se selecciona ninguno evento muestra la portada con la tabla de eventos disponibles
+//si no se selecciona ninguno evento se comprueba si se ha seleccionado 
+//alguno evento para imprimir. Si no hay ninguno se comprueba si se ha 
+//seleccionado una pagina generica, y finalmente si no se ha seleccionado 
+//nada se muestra la portada con la tabla de eventos disponibles
 if(is_null($num_evento)){
 	if(is_null($imp_evento)){
 		if(is_null($nombre_gen)){
@@ -41,15 +48,17 @@ if(is_null($num_evento)){
 		else{
 			$seleccionado = null;
 
+			//Se selecciona la pagina que coincida con el nombre que aparezca en la url
 			foreach($otras as $gen){
 				if($gen["enlace_o"] == $nombre_gen) $seleccionado = $gen;
 			}
 
+			//Si no coincide ninguno se muestra la pagina de inicio
 			if(!is_null($seleccionado)){
 				echo $twig->render('general.html',['nombre'=>$seleccionado["nombre"],'contenido'=>$seleccionado["contenido"],'css'=>'CSS/estilo.css','otras'=>$otras]);
 			}
 			else{
-				header('Location:otro/error.html');
+				header('Location:/');
 			}
 		}
 	}
@@ -65,8 +74,9 @@ if(is_null($num_evento)){
 				echo $twig->render('evento.html',['evento'=> $evento, 'css'=>'CSS/estilo_imp.css','otras'=>$otras]);
 			}
 		}
+		//si el numero de evento no es un int se redirige a la pagina principal
 		else{
-			header('Location:otro/error.html');
+			header('Location:/');
 		}
 	}
 
@@ -101,7 +111,7 @@ else{
 		}
 	}
 	else{
-		header('Location:otro/error.html');
+		header('Location:/');
 	}
 }
 ?>

@@ -1,9 +1,10 @@
 {% extends 'padre.html' %}
+
 {% block funciones %}
 <script src="../JS/funciones.js"></script>
 <script src="../JS/galeria.js"></script>
-
 {% endblock %}
+
 {% block principal %}
 <div class="evento">
     <h2>{{evento.nombre}}</h2>
@@ -40,9 +41,11 @@
         {% if evento.etiquetas is not empty %}
         <div id="etiquetas">
             <p>Etiquetas: |
+
             {% for etiq in evento.etiquetas %}
                 {{etiq}} |
             {% endfor %}
+            
         </div>
         {% endif %}
         
