@@ -18,7 +18,14 @@ El evento se estrena el próximo 19 de marzo y dura hasta el 26 de marzo, tiempo
 
 ¡Es tu oportunidad para cazar un gran número de Pokémon! Además de los Pokémon satélite, consigue otros como Oddish, Exeggcute, Sunkern o Shroomish.','img/2');
 
-INSERT INTO eventos VALUES ('3','Salida Assassin\'s Creed III','Ubisoft', '29/03/19','Ubisoft ha anunciado que la remasterización de este juego de PS3 saldrá a la venta a finales de marzo para PC, PS4 y XBOX One. Los usuarios de Nintendo Switch tendrán que esperar al 21 de mayo de este mismo año para poder disfrutar de este juego en su consola. Assassin\'s Creed III Remastered incluirá todos los DLC lanzados para el título original, soporte para resolución 4K y HDR y mejoras en las mecánicas de juego. El precio de este juego será de 39.99€. Además, podremos encontrar por 10€ más la Signature Edition, que incluirá además un steelbook exclusivo y dos litografías.','img/3');
+INSERT INTO eventos VALUES ('3','Salida Assassins Creed III','Ubisoft', '29/03/19','Ubisoft ha anunciado que la remasterización de este juego de PS3 saldrá a la venta a finales de marzo para PC, PS4 y XBOX One. Los usuarios de Nintendo Switch tendrán que esperar al 21 de mayo de este mismo año para poder disfrutar de este juego en su consola. Assassin\'s Creed III Remastered incluirá todos los DLC lanzados para el título original, soporte para resolución 4K y HDR y mejoras en las mecánicas de juego. El precio de este juego será de 39.99€. Además, podremos encontrar por 10€ más la Signature Edition, que incluirá además un steelbook exclusivo y dos litografías.','img/3');
+
+INSERT INTO eventos VALUES ('5','Fortnite','Epic Games', '04/04/16','Fortnite es un videojuego del año 2017 desarrollado por la empresa Epic Games, lanzado como diferentes paquetes de software que presentan diferentes modos de juego, pero que comparten el mismo motor general de juego y las mecánicas. Fue anunciado en los Spike Video Game Awards en 2011.
+
+Los modos de juego publicados incluyen Fortnite Battle Royale, un juego gratuito donde hasta cien jugadores luchan en una isla, en espacios cada vez más pequeños debido a la tormenta, para ser la última persona en pie, y Fortnite: Salvar el mundo, un juego cooperativo de hasta cuatro jugadores que consiste en luchar contra carcasas, criaturas parecidas a zombis, utilizando objetos y fortificaciones.
+
+Ambos modos de juego se lanzaron en 2017 como títulos de acceso anticipado. Salvar el Mundo está disponible solo para Windows, macOS, PlayStation 4 y Xbox One, mientras que Battle Royale ha sido publicado también para Nintendo Switch, dispositivos iOS y para Android.','img/5.jpg','23/04/19');
+
 
 -----------------------------------------------------------------------------
 
@@ -156,6 +163,9 @@ INSERT INTO tiene_i VALUES ('img/1_4','1','Nintendo: Mario Kart');
 INSERT INTO tiene_i VALUES ('img/2_1','2','Oddish');
 INSERT INTO tiene_i VALUES ('img/3_1','3','Comparacion');
 INSERT INTO tiene_i VALUES ('img/4_1','4','League of Legends');
+INSERT INTO tiene_i VALUES ('img/5_1.jpg','5','Fortnite');
+INSERT INTO tiene_i VALUES ('img/5_2.jpeg','5','Fortnite');
+INSERT INTO tiene_i VALUES ('img/5_3.jpg','5','Fortnite');
 
 CREATE TABLE tiene_e(
 	nombre VARCHAR(30),
