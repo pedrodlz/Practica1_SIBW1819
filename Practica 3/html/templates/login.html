@@ -1,0 +1,12 @@
+{% extends 'padre.html' %}
+{% block principal %}
+<div class="login">
+	<h2>Iniciar sesión</h2>
+	<form action="form.php/?id={{evento.id}}" id="formulario" method="post">
+            <p>Email: <input type="email" class="campos" name="nombre_f"/></p>
+            <p>Contraseña: <input type="password" class="campos" name="email_f"/></p>
+            <p><input type="submit" id="b_enviar" value="Entrar"/></p>
+            <p><a href="http://localhost:8080/PHP/panel_control.php">Registrarse</a>
+    </form>
+</div>
+{% endblock %}

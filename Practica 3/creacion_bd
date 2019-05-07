@@ -1,3 +1,12 @@
+CREATE TABLE usuario (
+	id_usuario VARCHAR(5), 
+	nombre_usuario VARCHAR(50),
+	email,
+	contraseña,
+	PRIMARY KEY (id)
+ );
+
+-----------------------------------------------------------------------------
 
 CREATE TABLE eventos (
 	id VARCHAR(5), 

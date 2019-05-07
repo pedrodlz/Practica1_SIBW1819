@@ -18,13 +18,7 @@
                     {% for p in otras %}
                     <li><a href="http://localhost:8080/PHP/general.php?general={{p.enlace_o}}">{{p.nombre}}</a></li>
                     {% endfor %}
-                    <li id="google">                
-                        <FORM method=GET action="http://www.google.com/search">
-                            <INPUT TYPE=text name=q size=15 maxlength=255 value=""/>
-                            <INPUT TYPE=hidden name=hl value=es/>
-                            <INPUT type=submit name=btnG VALUE="Google"/>
-                        </FORM>
-                    </li>  
+                    <li id="entrar"><a href="http://localhost:8080/PHP/login.php">Entrar/Registrarse</a></li>  
                 </ul>
             </div>
             {% endblock %}

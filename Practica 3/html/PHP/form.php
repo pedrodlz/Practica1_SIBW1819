@@ -47,9 +47,9 @@
 	else $error = 0;
 
 	if(is_null($error)){
-		$url = "Location: /index.php?evento=".$_GET['id'];
+		$url = "Location: /PHP/evento.php?evento=".$_GET['id'];
 	}
-	else $url = "Location: /index.php?evento=".$_GET['id']."&error=".$error;
+	else $url = "Location: /PHP/evento.php?evento=".$_GET['id']."&error=".$error;
 
 	header($url);
 ?>
