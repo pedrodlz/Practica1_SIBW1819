@@ -4,11 +4,11 @@ function boton(){
 	
 	if(window.getComputedStyle(comentarios).display === 'none'){
 		comentarios.style.display='block';
-		boton.innerHTML = ">";		
+		boton.innerHTML = '&gt';		
 	}
 	else if(window.getComputedStyle(comentarios).display == 'block'){
 		comentarios.style.display='none';
-		boton.innerHTML = "<";
+		boton.innerHTML = '&lt';
 	}
 }
 

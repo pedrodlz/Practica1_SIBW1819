@@ -25,9 +25,9 @@
 
         {% if evento.imagenes|length >1 %}
         <form name="galeria" id="galeria_todo">
-            <input type="button" value=">>" onclick="adelante({{evento.imagenes|json_encode()}})">
+            <input type="button" value='&lt;&lt;' onclick="atras({{evento.imagenes|json_encode()}})">
             <img src="../{{evento.imagenes[0].enlace_i}}" id="galeria">
-            <input type="button" value="<<" onclick="atras({{evento.imagenes|json_encode()}})">
+            <input type="button" value="&gt;&gt;" onclick="adelante({{evento.imagenes|json_encode()}})">
         </form>
         {% endif %}
 

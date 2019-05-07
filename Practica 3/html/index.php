@@ -1,17 +1,16 @@
 <?php
 require_once 'vendor/autoload.php';
 require("PHP/funciones.php");
-include_once('PHP/bd.php');
 
 $loader = new \Twig\Loader\FilesystemLoader('templates');
 $twig = new \Twig\Environment($loader,[ ]);
 
 //el menu
-$otras = obtieneGeneral($bd);
+$otras = obtieneGeneral();
 
-$tabla = obtienePortada($bd);
+$tabla = obtienePortada();
 
-//si no hay nigun evento muestra la pagina sin ninugn elemento central
+//si no hay nigun evento muestra la pagina sin ningun elemento central
 if(is_null($tabla)){
 	echo $twig->render('padre.html',['otras'=>$otras]);
 }

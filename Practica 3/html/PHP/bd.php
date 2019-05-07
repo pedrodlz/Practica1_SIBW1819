@@ -1,4 +1,5 @@
 <?php
+function conectarBD(){
 	$config = array(
 		'servername' =>"localhost",
 		'username' => "web_user",
@@ -6,7 +7,7 @@
 		'db_name' => "SIBW_bd"
 	);
 
-	$bd = NULL;
+	static $bd = NULL;
 
 	if(is_null($bd)){
 		$bd = mysqli_connect($config["servername"],$config["username"],$config["password"],$config["db_name"]);
@@ -20,4 +21,7 @@
 
 		$bd->set_charset("utf8");
 	}
+
+	return $bd;
+}
 ?>

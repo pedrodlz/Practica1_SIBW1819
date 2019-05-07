@@ -1,7 +1,6 @@
 <?php
 require_once '../vendor/autoload.php';
 require( "funciones.php" );
-include_once( 'bd.php' );
 
 $loader = new \Twig\Loader\FilesystemLoader( '../templates' );
 $twig = new \Twig\Environment( $loader, [] );
@@ -10,14 +9,14 @@ $twig = new \Twig\Environment( $loader, [] );
 $num_evento = $_GET['evento'];
 
 // Obtiene el menú
-$otras = obtieneGeneral( $bd );
+$otras = obtieneGeneral();
 
 // Comprueba que el id del evento es un número y si no muestra un error
 if( filter_var( $num_evento, FILTER_VALIDATE_INT ) ) {
 
-	$evento = obtieneEvento( $bd, $num_evento );
-	$comentarios = obtieneComentarios( $bd, $num_evento );
-	$prohibidas = obtienePalabrasProhibidas( $bd );
+	$evento = obtieneEvento( $num_evento );
+	$comentarios = obtieneComentarios( $num_evento );
+	$prohibidas = obtienePalabrasProhibidas( );
 
 	// Si no hay información acerca del evento seleccionado se redirige a la página principal
 	if( is_null( $evento ) ) {

@@ -1,11 +1,10 @@
 <?php
 	require("funciones.php");
-	include_once('bd.php');
 
 	//primer filtro: el id del evento que se manda es un numero
 	if(filter_var($_GET['id'], FILTER_VALIDATE_INT)){
 
-		$eventos_disponibles = getEventosDisp($bd);
+		$eventos_disponibles = getEventosDisp();
 
 		//segundo filtro: el id del evento se encuentra en la base de datos, de lo contrario estariamos añadiendo un comentario a un evento que no existe
 		if(in_array($_GET['id'],$eventos_disponibles)){
@@ -36,7 +35,7 @@
 			     			"cuerpo" => $cuerpo
 			     		);
 
-			     		$error = publicaComentario($bd,$comentario);
+			     		$error = publicaComentario($comentario);
 			     	}
 			     	else $error = 4;
 		     	}

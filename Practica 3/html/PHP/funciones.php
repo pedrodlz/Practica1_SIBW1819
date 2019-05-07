@@ -1,5 +1,9 @@
 <?php
-	function obtienePortada($bd){
+	require 'bd.php'; 
+
+	function obtienePortada(){
+		$bd = conectarBD();
+
 		$orden = "SELECT id,nombre,imagen FROM eventos;";
 		$consulta = $bd->query($orden);
 		$resultado = mysqli_fetch_all($consulta,MYSQLI_BOTH);
@@ -7,7 +11,9 @@
 		return $resultado;
 	}
 
-	function getEventosDisp($bd){
+	function getEventosDisp(){
+		$bd = conectarBD();
+
 		$orden = "SELECT id FROM eventos;";
 		$consulta = $bd->query($orden);
 		$num_filas = mysqli_num_rows($consulta);
@@ -20,7 +26,9 @@
 		return $resultado;
 	}
 
-	function obtieneEvento($bd,$num_evento){
+	function obtieneEvento($num_evento){
+		$bd = conectarBD();
+
 		$orden1 = "SELECT * FROM eventos WHERE id=" . $num_evento . ";";
 		$consulta1 = $bd->query($orden1);
 		$resultado1 = mysqli_fetch_array($consulta1);
@@ -49,7 +57,9 @@
 		return $resultado1;
 	}
 
-	function obtieneComentarios($bd,$num_evento){
+	function obtieneComentarios($num_evento){
+		$bd = conectarBD();
+
 		$orden = "SELECT * FROM tiene_c WHERE id=" . $num_evento . ";";
 		$consulta = $bd->query($orden);
 		$resultado = mysqli_fetch_all($consulta,MYSQLI_BOTH);
@@ -57,7 +67,9 @@
 		return $resultado;
 	}
 
-	function publicaComentario($bd,$comentario){
+	function publicaComentario($comentario){
+		$bd = conectarBD();
+
 		$orden = "INSERT INTO tiene_c VALUES ('" . $comentario["id"]."','".$comentario["ip"] . "','" . $comentario["nombre"]. "','".$comentario["correo"]."','".$comentario["fecha"]."','".$comentario["cuerpo"]."');";
 
 		$consulta = $bd->query($orden);
@@ -72,7 +84,9 @@
 		return $mensaje;
 	}
 
-	function obtienePalabrasProhibidas($bd){
+	function obtienePalabrasProhibidas(){
+		$bd = conectarBD();
+		
 		$orden = "SELECT * from prohibidas;";
 		$consulta = $bd->query($orden);
 		$num_filas = mysqli_num_rows($consulta);
@@ -85,20 +99,14 @@
 		return $resultado;
 	}
 
-	function obtieneGeneral($bd){
+	function obtieneGeneral(){
+		$bd = conectarBD();
+
 		$orden = "SELECT * from otras;";
 		$consulta = $bd->query($orden);
 		$resultado = mysqli_fetch_all($consulta,MYSQLI_BOTH);
 
 		return $resultado;
-	}
-
-	function censurarPalabras($bd,$texto){
-		$orden = "SELECT * FROM prohibidas;";
-		$consulta = $bd->query($orden);
-		$resultado = mysqli_fetch_all($consulta);
-
-		return $texto_limpio;
 	}
 
 	function getIP() {
