@@ -9,14 +9,14 @@
 	<body>
         <header>
         	{% block cabecera %}
-            <img src="img/icon.png" alt="Icono de Videojugones">
+            <img src="../img/icon.png" alt="Icono de Videojugones">
             <h1> VIDEOJUGONES </h1>
 
             <div class="menu">
                 <ul>
                     <li><a href="http://localhost:8080">Home</a></li>
                     {% for p in otras %}
-                    <li><a href="http://localhost:8080/index.php?general={{p.enlace_o}}">{{p.nombre}}</a></li>
+                    <li><a href="http://localhost:8080/PHP/general.php?general={{p.enlace_o}}">{{p.nombre}}</a></li>
                     {% endfor %}
                     <li id="google">                
                         <FORM method=GET action="http://www.google.com/search">

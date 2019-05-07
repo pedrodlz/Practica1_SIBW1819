@@ -4,7 +4,7 @@ function adelante(imagenes){
 	num++;
 	if(num>imagenes.length-1) num=0;
 	var foto = document.getElementById("galeria");
-	foto.src=imagenes[num].enlace_i;
+	foto.src=imagenes[num]. + "../" + enlace_i;
 }
 
 function atras(imagenes){

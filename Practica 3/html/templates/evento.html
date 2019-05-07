@@ -14,7 +14,7 @@
 
         <a href="{{evento.imagenes[0].enlace_i}}">
             <div id="img_ev1">
-                <img src={{evento.imagenes[0].enlace_i}} alt="img_evento">
+                <img src="../{{evento.imagenes[0].enlace_i}}" alt="img_evento">
                 <div class="cred_foto"><p>{{evento.imagenes[0].creditos}}</p></div>
             </div>
         </a>
@@ -26,13 +26,13 @@
         {% if evento.imagenes|length >1 %}
         <form name="galeria" id="galeria_todo">
             <input type="button" value=">>" onclick="adelante({{evento.imagenes|json_encode()}})">
-            <img src="/{{evento.imagenes[0].enlace_i}}" id="galeria">
+            <img src="../{{evento.imagenes[0].enlace_i}}" id="galeria">
             <input type="button" value="<<" onclick="atras({{evento.imagenes|json_encode()}})">
         </form>
         {% endif %}
 
         {% if evento.video is not empty %}
-        <video id="video_evento" src="{{evento.video}}" type="video/mp4" controls>
+        <video id="video_evento" src="../{{evento.video}}" type="video/mp4" controls>
             Tu navegador no implementa el elemento <code>video</code>.
         </video>
         <div id="url_video">URL video: {{evento.video}}</div>            
@@ -55,7 +55,7 @@
     </div>
 
     <div id="rrss">
-    	<a class="icono" href="http://localhost:8080/index.php?imp={{evento.id}}">
+    	<a class="icono" href="http://localhost:8080/PHP/evento_imprimir.php?imp={{evento.id}}">
         	<img src="../img/imprimir.jpeg" alt="imprimir">
         </a>
         <input type="button" class="icono" id="facebook" onClick="compartir('Facebook','{{evento.nombre}}','{{evento.imagenes[0].enlace_i}}')">
@@ -65,7 +65,7 @@
 {% endblock %}
 
 {% block zona_comentarios %}
-<button id="b_comentarios" type="button" onclick="boton()"> < </button>
+<button id="b_comentarios" type="button" onclick="boton()"> &lt; </button>
 <div id="Comentarios">
     <h2> Comentarios </h2>
         {% for com in comentarios %}
