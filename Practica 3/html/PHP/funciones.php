@@ -11,6 +11,32 @@
 		return $resultado;
 	}
 
+	function entrar($usuario,$contraseña){
+		$bd = conectarBD();
+
+		$orden = "SELECT * FROM usuario WHERE nombre_usuario='".$usuario."';";
+		$consulta = $bd->query($orden);
+		$num_filas = mysqli_num_rows($consulta);
+
+		if($num_filas==0){
+			$resultado["error"] = 1;
+			$resultado["mensaje"] = "No existe usuario con ese nombre";
+		}
+		else{
+			$resultado["error"] = 0;
+			$resultado["mensaje"] = "Existe usuario";
+
+			$resultado["usuario"] = mysqli_fetch_all($consulta,MYSQLI_BOTH);
+			$resultado["usuario"] = $resultado["usuario"][0];
+
+			if($resultado["usuario"]["contraseña"] == $contraseña){
+				$resultado["mensaje"] = "Identificacion correcta";
+			}
+		}
+
+		return $resultado;
+	}
+
 	function getEventosDisp(){
 		$bd = conectarBD();
 

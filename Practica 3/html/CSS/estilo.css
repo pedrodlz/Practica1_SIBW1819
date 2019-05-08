@@ -152,6 +152,7 @@ header > img{
 }
 
 #mensaje_error{
+	color:black;
 	background-color: white;
 }
 

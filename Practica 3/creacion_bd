@@ -1,10 +1,18 @@
 CREATE TABLE usuario (
-	id_usuario VARCHAR(5), 
-	nombre_usuario VARCHAR(50),
-	email,
-	contraseña,
-	PRIMARY KEY (id)
+	id_usuario int NOT NULL AUTO_INCREMENT, 
+	nombre_usuario VARCHAR(50) NOT NULL,
+	email VARCHAR(80) NOT NULL,
+	contraseña CHAR(32) NOT NULL,
+	tipo VARCHAR(50) CHECK (tipo IN ('registrado','moderador','gestor sitio','superusuario')),
+	pais VARCHAR(25),
+	fecha_nacimiento DATE,
+	PRIMARY KEY (id_usuario),
+	UNIQUE KEY (nombre_usuario,email)
  );
+
+megustahacerpaginasweb
+
+ INSERT INTO usuario (nombre_usuario,email,contraseña,tipo,pais, fecha_nacimiento) VALUES('wikiperritos','admin@videojugones.com','541b34d2ae348aff82592504aed70b80','superusuario','España','1998-07-28');
 
 -----------------------------------------------------------------------------
 
