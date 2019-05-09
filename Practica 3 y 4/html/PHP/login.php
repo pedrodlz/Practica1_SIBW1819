@@ -8,6 +8,10 @@ $twig = new \Twig\Environment( $loader, [] );
 // Obtiene el menú
 $otras = obtieneGeneral();
 
-echo $twig->render( 'panel_control.html', ['css'=>'../CSS/estilo.css','otras'=>$otras] );
+include_once("plantilla_sesion.php");
+
+echo $twig->render( 'login.html', ['css'=>'../CSS/estilo.css',
+'otras'=>$otras,'entrar_cerrar_sesion'=>$entrar_cerrar_sesion,
+'sesion_abierta_cerrada'=>$sesion_abierta_cerrada] );
 
 ?>

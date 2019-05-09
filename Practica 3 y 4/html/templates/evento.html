@@ -78,11 +78,15 @@
 
         <div id="mensaje_error">{{error}}</div>
 
+        {% if tipo_usuario != "anonimo" %}
         <form action="form.php/?id={{evento.id}}" id="formulario" method="post">
             <p>Nombre: <input type="text" class="campos" name="nombre_f"/></p>
             <p>Email: <input type="email" class="campos" name="email_f"/></p>
             <p>Cuerpo: <textarea name="cuerpo_f" id="cuerpo_f" onkeydown="censurar({{prohibidas|json_encode()}})"/></textarea></p>
             <p><input type="submit" id="b_enviar" value="Enviar"/></p>
         </form>
+        {%else%}
+        <div id="mensaje_error">Debe iniciar sesión para comentar</div>
+        {% endif %}
 </div>
 {% endblock %}

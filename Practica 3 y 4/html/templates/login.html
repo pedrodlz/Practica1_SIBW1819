@@ -2,8 +2,8 @@
 {% block principal %}
 <div class="login">
 	<h2>Iniciar sesión</h2>
-	<div id="mensaje_error">{{error}}</div>
 	<form action="iniciar_sesion.php" id="formulario" method="post">
+            <div id="mensaje_error">{{error}}</div>
             <p>Nombre de usuario: <input type="text" class="campos" name="nombre_inicio_sesion"/></p>
             <p>Contraseña: <input type="password" class="campos" name="contraseña_inicio_sesion"/></p>
             <p><input type="submit" id="b_enviar" value="Entrar"/></p>

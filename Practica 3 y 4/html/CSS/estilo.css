@@ -57,7 +57,7 @@ header > img{
   	background-color: #111;
 }
 
-#entrar{
+#sesion,#perfil{
 	float:right;
 }
 
@@ -209,7 +209,6 @@ header > img{
 }
 
 #formulario{
-	margin-top: 20px;
 	padding:10px;
 	background-color: DarkSlateBlue;
 	border-radius: 15px;

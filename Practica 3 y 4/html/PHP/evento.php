@@ -11,6 +11,8 @@ $num_evento = $_GET['evento'];
 // Obtiene el menú
 $otras = obtieneGeneral();
 
+include_once("plantilla_sesion.php");
+
 // Comprueba que el id del evento es un número y si no muestra un error
 if( filter_var( $num_evento, FILTER_VALIDATE_INT ) ) {
 
@@ -36,9 +38,16 @@ if( filter_var( $num_evento, FILTER_VALIDATE_INT ) ) {
 			}
 		}
 
+		$tipo_usuario = "anonimo";
+
+		if(isset($_SESSION['user'])){
+			$tipo_usuario = $_SESSION['user']['tipo'];
+		}
+
 		echo $twig->render( 'evento.html', ['evento'=>$evento, 'comentarios'=>$comentarios,
 							'error'=>$mensaje, 'css'=>'../CSS/estilo.css', 'prohibidas'=>$prohibidas,
-							'otras'=>$otras] );
+							'otras'=>$otras,'entrar_cerrar_sesion'=>$entrar_cerrar_sesion,
+							'sesion_abierta_cerrada'=>$sesion_abierta_cerrada,'tipo_usuario'=>$tipo_usuario] );
 	}
 
 } else {

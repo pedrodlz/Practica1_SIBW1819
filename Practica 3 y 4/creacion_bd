@@ -1,6 +1,7 @@
 CREATE TABLE usuario (
 	id_usuario int NOT NULL AUTO_INCREMENT, 
 	nombre_usuario VARCHAR(50) NOT NULL,
+	nombre_completo VARCHAR(100) NOT NULL,
 	email VARCHAR(80) NOT NULL,
 	contraseña CHAR(32) NOT NULL,
 	tipo VARCHAR(50) CHECK (tipo IN ('registrado','moderador','gestor sitio','superusuario')),
@@ -12,7 +13,7 @@ CREATE TABLE usuario (
 
 megustahacerpaginasweb
 
- INSERT INTO usuario (nombre_usuario,email,contraseña,tipo,pais, fecha_nacimiento) VALUES('wikiperritos','admin@videojugones.com','541b34d2ae348aff82592504aed70b80','superusuario','España','1998-07-28');
+ INSERT INTO usuario (nombre_usuario,nombre_completo, email,contraseña,tipo,pais, fecha_nacimiento) VALUES('wikiperritos','Pedro Domínguez López','admin@videojugones.com','541b34d2ae348aff82592504aed70b80','superusuario','España','1998-07-28');
 
 -----------------------------------------------------------------------------
 

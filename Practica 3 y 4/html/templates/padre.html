@@ -18,7 +18,10 @@
                     {% for p in otras %}
                     <li><a href="http://localhost:8080/PHP/general.php?general={{p.enlace_o}}">{{p.nombre}}</a></li>
                     {% endfor %}
-                    <li id="entrar"><a href="http://localhost:8080/PHP/login.php">Entrar/Registrarse</a></li>  
+                    <li id="sesion"><a href="http://localhost:8080/PHP/{{entrar_cerrar_sesion}}">{{sesion_abierta_cerrada}}</a></li>  
+                    {% if entrar_cerrar_sesion != "login.php"%}
+                    <li id="perfil"><a href="http://localhost:8080/PHP/panel_control.php">Perfil</a></li>
+                    {% endif %}
                 </ul>
             </div>
             {% endblock %}
