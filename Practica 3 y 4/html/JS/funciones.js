@@ -57,7 +57,7 @@ msgWindow.document.write
     			'<div><p>Se publicará en '+rs+' el siguiente mensaje:</p>'+
 				'<p>'+nombre+'</p>'+
 				'<p>Vía @videojugones</p>'+
-				'<img src="'+imagen+'"></div>' +
+				'<img src="../'+imagen+'"></div>' +
     			'<INPUT TYPE="button" VALUE="Aceptar" onClick="window.close();">'+
     		'</FORM>'+
     	'</BODY>'+

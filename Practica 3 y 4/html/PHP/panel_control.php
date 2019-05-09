@@ -10,8 +10,15 @@ $otras = obtieneGeneral();
 
 include_once("plantilla_sesion.php");
 
+if(isset($_SESSION['user'])){
+    $usuario = $_SESSION['user'];
+}
+else{
+    $usuario = NULL;
+}
+
 echo $twig->render( 'panel_control.html', ['css'=>'../CSS/estilo.css',
 'otras'=>$otras,'entrar_cerrar_sesion'=>$entrar_cerrar_sesion,
-'sesion_abierta_cerrada'=>$sesion_abierta_cerrada] );
+'sesion_abierta_cerrada'=>$sesion_abierta_cerrada,'usuario'=>$usuario] );
 
 ?>

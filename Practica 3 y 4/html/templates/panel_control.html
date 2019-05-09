@@ -1,6 +1,24 @@
 {% extends 'padre.html' %}
 {% block principal %}
 <div class="panel_control">
-	
+    {% if usuario is not empty%}
+    <h2>Perfil</h2>
+
+    <div id="informacion_usuario">
+        <p>Nombre de usuario: {{usuario.nombre_usuario}}</p>
+        <p>Email: {{usuario.email}}</p>
+        <p>Nombre completo: {{usuario.nombre_completo}}</p>
+        <p>Fecha de nacimiento: {{usuario.fecha_nacimiento}}</p>
+        <p>Pais: {{usuario.pais}}</p>
+        <p>Tipo de usuario: {{usuario.tipo}}</p>
+    </div>
+
+    <div>
+        <button id="b_perfil" type="button" onclick=""> Editar </button>
+    </div>
+    
+    {% else %}
+    <p>Tiene que iniciar sesión antes</p>
+    {% endif %}
 </div>
 {% endblock %}
