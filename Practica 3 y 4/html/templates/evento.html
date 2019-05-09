@@ -8,6 +8,15 @@
 {% block principal %}
 <div class="evento">
     <h2>{{evento.nombre}}</h2>
+    {% if tipo_usuario == "gestor sitio" or tipo_usuario == "superusuario"%}
+    <div>
+        <form action="../PHP/gestion_eventos.php" method="post">
+            <button class="b_gestion_ev" type="submit" name="accion_ev" value="editar" >Editar</button>
+            <button class="b_gestion_ev" type="submit" name="accion_ev" value="añadir" >Añadir</button>
+            <button class="b_gestion_ev" type="submit" name="accion_ev" value="eliminar" >Eliminar</button>
+        </form>
+    </div>
+    {% endif %}
     <div id="contenido_ev">
         <h3>{{evento.organizador}}</h3>
         <h4>{{evento.fecha}}</h4>
@@ -79,7 +88,7 @@
         <div id="mensaje_error">{{error}}</div>
 
         {% if tipo_usuario != "anonimo" %}
-        <form action="form.php/?id={{evento.id}}" id="formulario" method="post">
+        <form action="añadir_comentario.php/?id={{evento.id}}" id="formulario" method="post">
             <p>Nombre: <input type="text" class="campos" name="nombre_f"/></p>
             <p>Email: <input type="email" class="campos" name="email_f"/></p>
             <p>Cuerpo: <textarea name="cuerpo_f" id="cuerpo_f" onkeydown="censurar({{prohibidas|json_encode()}})"/></textarea></p>

@@ -234,6 +234,15 @@ header > img{
 	cursor: pointer;
 }
 
+#guardar_perfil{
+	float:right;
+	margin:1%;
+}
+#b_cancelar{
+	float:left;
+	margin:1%;
+}
+
 #informacion_usuario,#b_perfil{
 	float:left;
 	text-align: left;
@@ -241,14 +250,14 @@ header > img{
 }
 
 .panel_control{
-	display:grid;
+	display:inline;
 }
 
 .evento,.panel_control{
 	font-size: 1.8vw;
 }
 
-.evento h2, .login h2, .panel_control h2{
+.evento h2, .login h2, .panel_control h2, .editar_evento h2{
 	background-color: FireBrick;
 	border-radius: 15px 15px 0 0;
 	margin:0;
@@ -277,7 +286,13 @@ header > img{
 }
 
 #contenido_ev{
+	display:inline-block;
 	padding:0 20px 20px 20px;
+}
+
+.b_gestion_ev{
+	float:right;
+	margin:1%;
 }
 
 .contenido_gen{

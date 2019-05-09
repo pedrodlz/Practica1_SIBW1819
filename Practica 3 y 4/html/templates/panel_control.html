@@ -4,6 +4,7 @@
     {% if usuario is not empty%}
     <h2>Perfil</h2>
 
+    {% if tipo_accion == "ver" %}
     <div id="informacion_usuario">
         <p>Nombre de usuario: {{usuario.nombre_usuario}}</p>
         <p>Email: {{usuario.email}}</p>
@@ -11,11 +12,25 @@
         <p>Fecha de nacimiento: {{usuario.fecha_nacimiento}}</p>
         <p>Pais: {{usuario.pais}}</p>
         <p>Tipo de usuario: {{usuario.tipo}}</p>
+        <form action="../PHP/panel_control.php" method="post">
+            <button id="b_perfil" type="submit" name="editar_perfil" value="editar" >Editar</button>
+        </form>
     </div>
+    {% elseif tipo_accion == "editar" %}
+    <form action="../PHP/guardar_perfil.php" method="post">
+        <p>Nombre de usuario: <input type="text" class="campos" name="nombre_usuario" value="{{usuario.nombre_usuario}}"/></p>
+        <p>Email: <input type="email" class="campos" name="email_usuario" value="{{usuario.email}}"/></p>
+        <p>Nombre completo: <input type="text" class="campos" name="nombre_usuario_completo" value="{{usuario.nombre_completo}}""/></textarea></p>
+        <p>Fecha de nacimiento: <input type="text" class="campos" name="nombre_usuario_completo" value="{{usuario.fecha_nacimiento}}""/></textarea></p>
+        <p>País: <input type="text" class="campos" name="pais_usuario" value="{{usuario.pais}}""/></textarea></p>
+        <button id="guardar_perfil" type="submit" name="editar_perfil" value="guardar">Guardar</button>
+    </form>
+    <form action="../PHP/panel_control.php" method="post">
+        <button id="b_cancelar" type="submit" name="editar_perfil" value="cancelar">Cancelar</button>
+    </form>
+    {% endif %}
 
-    <div>
-        <button id="b_perfil" type="button" onclick=""> Editar </button>
-    </div>
+
     
     {% else %}
     <p>Tiene que iniciar sesión antes</p>
