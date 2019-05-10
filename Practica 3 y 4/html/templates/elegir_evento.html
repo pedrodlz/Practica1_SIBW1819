@@ -1,0 +1,16 @@
+{% extends 'padre.html' %}
+
+{% block principal %}
+<div class="gestion_evento">
+    <h2>Elegir Evento</h2>
+    <h3>Seleccione un evento de la lista:</h3>
+    <form method="post" action="editar_evento.php">
+        <select name="lista_eventos">
+            {% for evento in gestion.eventos %}
+            <option value="{{evento.id}}">{{evento['nombre']}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" value="">
+    </form>
+</div>
+{% endblock %}

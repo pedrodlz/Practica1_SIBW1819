@@ -10,10 +10,12 @@
     <h2>{{evento.nombre}}</h2>
     {% if tipo_usuario == "gestor sitio" or tipo_usuario == "superusuario"%}
     <div>
-        <form action="../PHP/gestion_eventos.php" method="post">
-            <button class="b_gestion_ev" type="submit" name="accion_ev" value="editar" >Editar</button>
-            <button class="b_gestion_ev" type="submit" name="accion_ev" value="añadir" >Añadir</button>
-            <button class="b_gestion_ev" type="submit" name="accion_ev" value="eliminar" >Eliminar</button>
+        <form action="../PHP/añadir_evento.php" method="post">
+            <button class="b_gestion_ev" type="submit" name="accion_ev" value="Añadir" >Añadir</button>
+        </form>
+        <form action="../PHP/elegir_evento.php" method="post">
+            <button class="b_gestion_ev" type="submit" name="accion_ev" value="Editar" >Editar</button>
+            <button class="b_gestion_ev" type="submit" name="accion_ev" value="Eliminar" >Eliminar</button>
         </form>
     </div>
     {% endif %}

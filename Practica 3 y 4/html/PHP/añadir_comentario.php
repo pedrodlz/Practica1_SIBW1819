@@ -4,7 +4,11 @@
 	//primer filtro: el id del evento que se manda es un numero
 	if(filter_var($_GET['id'], FILTER_VALIDATE_INT)){
 
-		$eventos_disponibles = getEventosDisp();
+		$consulta = getEventosDisp();
+
+		for($i = 0;$i < count($consulta);++$i){
+			$eventos_disponibles[$i] = $consulta[$i]['id'];
+		}
 
 		//segundo filtro: el id del evento se encuentra en la base de datos, de lo contrario estariamos añadiendo un comentario a un evento que no existe
 		if(in_array($_GET['id'],$eventos_disponibles)){
@@ -16,7 +20,7 @@
 
 		        	$error = 5;
 		        }
-		     	else{		     		
+		     	else{
 
 			        $nombre = filter_var($_POST['nombre_f'],FILTER_SANITIZE_STRING);
 			        $email = filter_var($_POST["email_f"],FILTER_SANITIZE_EMAIL);

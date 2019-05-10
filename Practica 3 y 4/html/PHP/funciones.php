@@ -41,14 +41,10 @@
 	function getEventosDisp(){
 		$bd = conectarBD();
 
-		$orden = "SELECT id FROM eventos;";
+		$orden = "SELECT id,nombre FROM eventos;";
 		$consulta = $bd->query($orden);
 		$num_filas = mysqli_num_rows($consulta);
-		$datos = mysqli_fetch_all($consulta);
-
-		for($x = 0; $x < $num_filas; $x++){
-			$resultado[$x] = $datos[$x][0];
-		}
+		$resultado = mysqli_fetch_all($consulta,MYSQLI_BOTH);
 
 		return $resultado;
 	}
