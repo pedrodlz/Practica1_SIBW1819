@@ -234,7 +234,7 @@ header > img{
 	cursor: pointer;
 }
 
-#guardar_perfil{
+#guardar_perfil,#boton_editar_evento,#boton_añadir_evento{
 	float:right;
 	margin:1%;
 }
@@ -249,7 +249,7 @@ header > img{
 	margin:15px;
 }
 
-.panel_control{
+.panel_control,.gestion_evento{
 	display:inline;
 }
 

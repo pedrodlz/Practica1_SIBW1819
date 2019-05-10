@@ -11,15 +11,26 @@
     include_once("plantilla_sesion.php");
 
     if(isset($_SESSION['user'])){
-        if($_SESSION['user']['tipo'] == "gestor sitio" || $_SESSION['user']['tipo'] == "superusuario" ){
-            
+        if($_SESSION['user']['tipo'] == "gestor sitio" || $_SESSION['user']['tipo'] == "superusuario" ){          
 
-            $gestion['accion']="Editar";
-
-                echo $twig->render( "editar_evento.html", ['css'=>'../CSS/estilo.css',
-            'otras'=>$otras,'entrar_cerrar_sesion'=>$entrar_cerrar_sesion,
-            'sesion_abierta_cerrada'=>$sesion_abierta_cerrada,'gestion'=>$gestion] );
-
+            if(isset($_POST['b_editar_evento'])){
+                header("location:/");
+            }
+            else{
+                if(!isset($_POST['evento'])){
+                    $gestion['accion']="Editar";
+                    $gestion['seleccionado'] = $_POST['lista_eventos'];
+                    $gestion['evento']= obtieneEvento($gestion['seleccionado']);
+                        echo $twig->render( "editar_evento.html", ['css'=>'../CSS/estilo.css',
+                    'otras'=>$otras,'entrar_cerrar_sesion'=>$entrar_cerrar_sesion,
+                    'sesion_abierta_cerrada'=>$sesion_abierta_cerrada,'gestion'=>$gestion] );
+                }
+                else{
+                    $resultado = editarEvento($_POST['evento']);
+                    $url = "location:/PHP/evento.php?evento=" . $_POST['evento']['id'];
+                    header($url);
+                }
+            } 
         }
         else header("location:/");
     }

@@ -4,9 +4,18 @@
 <div class="gestion_evento">
     <h2>{{gestion.accion}} evento</h2>
 
-    <form id="editar_ev">
-
+    <form action="../PHP/editar_evento.php" method="post">
+        <p>Nombre del evento: <input type="text" class="campos" name="evento[nombre]" value="{{gestion.evento.nombre}}"/></p>
+        <p>Organizador: <input type="text" class="campos" name="evento[organizador]" value="{{gestion.evento.organizador}}"/></p>
+        <p>Fecha: <input type="text" class="campos" name="evento[fecha]" value="{{gestion.evento.fecha}}""/></p>
+        <p>Texto: <textarea class="campos" name="evento[texto]">{{gestion.evento.texto}}</textarea></p>
+        <p>Imagen de la portada: <input type="text" class="campos" name="evento[imagen]" value="{{gestion.evento.imagen}}""/></textarea></p>
+        <button id="boton_editar_evento" type="submit" name="evento[id]" value="{{gestion.evento.id}}">Guardar</button>
     </form>
+    <form action="../PHP/editar_evento.php" method="post">
+        <button id="b_cancelar" type="submit" name="b_editar_evento" value="cancelar">Cancelar</button>
+    </form>
+  
 
 </div>
 {% endblock %}

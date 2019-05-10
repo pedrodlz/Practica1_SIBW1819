@@ -49,6 +49,59 @@
 		return $resultado;
 	}
 
+	function obtieneIdDisponible(){
+		$eventos_disp = getEventosDisp();
+
+		for($i = 0;$i < count($eventos_disp);++$i){
+			$eventos_disponibles[$i] = $eventos_disp[$i]['id'];
+		}
+
+		$x;
+		$sigo = true;
+
+		for($i = 1; $sigo; $i++){
+			if(!in_array($i,$eventos_disponibles)){
+				$sigo=false;
+				$x=$i;
+			}
+		}
+		
+		return $x;
+	}
+
+	function aniadirEvento($evento){
+		$bd = conectarBD();
+
+		$evento['fecha_p_m'] = date('y-m-d h:i:s',time());
+		$orden = "INSERT INTO eventos VALUES (
+							'".$evento['id']."',
+							'".$evento['nombre']."',
+							'".$evento['organizador']."',
+							'".$evento['fecha']."',
+							'".$evento['texto']."',
+							'".$evento['imagen']."',
+							'".$evento['fecha_p_m']."'
+							);";
+
+		$consulta = $bd->query($orden);
+		
+		return $consulta;
+	}
+
+	function editarEvento($evento){
+		$bd = conectarBD();
+
+		$evento['fecha_p_m'] = date('y-m-d h:i:s',time());
+		$orden = "UPDATE eventos SET nombre='".$evento[nombre]."',
+							organizador='".$evento['organizador']."',
+							fecha='".$evento['fecha']."',texto='".$evento['texto']."',
+							imagen='".$evento['imagen']."',fecha_p_m='".$evento['fecha_p_m']."' WHERE id='".$evento[id]."';";
+
+		$consulta = $bd->query($orden);
+
+		return $consulta;
+	}
+
 	function obtieneEvento($num_evento){
 		$bd = conectarBD();
 

@@ -4,8 +4,16 @@
 <div class="gestion_evento">
     <h2>{{gestion.accion}} evento</h2>
 
-    <form id="añadir_ev">
-
+    <form action="../PHP/añadir_evento.php" method="post">
+        <p>Nombre del evento: <input type="text" class="campos" name="evento[nombre]"/></p>
+        <p>Organizador: <input type="text" class="campos" name="evento[organizador]"/></p>
+        <p>Fecha: <input type="text" class="campos" name="evento[fecha]"/></p>
+        <p>Texto: <textarea class="campos" name="evento[texto]"></textarea></p>
+        <p>Imagen de la portada: <input type="text" class="campos" name="evento[imagen]"></p>
+        <button id="boton_añadir_evento" type="submit">Guardar</button>
+    </form>
+    <form action="../PHP/añadir_evento.php" method="post">
+        <button id="b_cancelar" type="submit" name="b_añadir_evento" value="cancelar">Cancelar</button>
     </form>
 
 </div>
