@@ -137,6 +137,17 @@
 		return $consulta;
 	}
 
+	function editarComentario( $comentario ) {
+		$bd = conectarBD();
+
+		$orden = "UPDATE tiene_c SET nombre='".$comentario['nombre']."',
+				  cuerpo='".$comentario['cuerpo']."'
+				  WHERE id_comentario='".$comentario['id_comentario']."';";
+
+		$consulta = $bd->query( $orden );
+		return $consulta;
+	}
+
 	function editarPerfil($perfil){
 		$bd = conectarBD();
 

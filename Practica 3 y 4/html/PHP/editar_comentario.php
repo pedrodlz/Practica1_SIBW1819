@@ -19,7 +19,7 @@
 				}
 			}
 
-			if( !isset( $_POST['id_comentario'] ) ) {
+			if( !isset( $_POST['comentario'] ) ) {
 				if( filter_var( $_GET['id_comentario'], FILTER_VALIDATE_INT ) ) {
 					$gestion['seleccionado'] = $_GET['id_comentario'];
 					$gestion['comentario'] = obtieneComentario( $gestion['seleccionado'] );
@@ -29,7 +29,7 @@
 						'sesion_abierta_cerrada'=>$sesion_abierta_cerrada, 'gestion'=>$gestion] );
 				} else header( "location:/" );
 			} else {
-				$resultado = editarComentario( $_POST['id_comentario'] );
+				$resultado = editarComentario( $_POST['comentario'] );
 				header( "location:/" );
 			}
 
