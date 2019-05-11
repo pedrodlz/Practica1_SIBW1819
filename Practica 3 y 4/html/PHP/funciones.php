@@ -199,6 +199,16 @@
 		return $resultado;
 	}
 
+	function obtieneComentario( $id_comentario ) {
+		$bd = conectarBD();
+
+		$orden = "SELECT * FROM tiene_c WHERE id_comentario=".$id_comentario.";";
+		$consulta = $bd->query( $orden );
+
+		$resultado = mysqli_fetch_array( $consulta );
+		return $resultado;
+	}
+
 	function obtieneTodosComentarios(){
 		$bd = conectarBD();
 

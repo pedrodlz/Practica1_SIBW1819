@@ -15,7 +15,21 @@
 
 			if( isset( $_POST['b_editar_comentario'] ) ) {
 				if( $_POST['b_editar_comentario'] == "cancelar" ) {
-					$url = "location:/PHP/evento";
+					header( "location:/" );
+				}
+
+				if( !isset( $_POST['id_comentario'] ) ) {
+					if( filter_var( $_GET['id_comentario'], FILTER_VALIDATE_INT ) ) {
+						$gestion['seleccionado'] = $_GET['id_comentario'];
+						$gestion['comentario'] = obtieneComentario( $gestion['seleccionado'] );
+
+						echo $twig->render( "editar_comentario.html", ['css'=>'../CSS/estilo.css',
+							'otras'=>$otras, 'entrar_cerrar_sesion'=>$entrar_cerrar_sesion,
+							'sesion_abierta_cerrada'=>$sesion_abierta_cerrada, 'gestion'=>$gestion] );
+					} else header( "location:/" );
+				} else {
+					$resultado = editarComentario( $_POST['id_comentario'] );
+					header( "location:/" );
 				}
 			}
 

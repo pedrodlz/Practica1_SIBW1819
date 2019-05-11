@@ -1,0 +1,16 @@
+{% extends 'padre.html' %}
+
+{% block principal %}
+<div class="gestion_comentario">
+	<h2>Editar comentario</h2>
+
+	<form action="../PHP/editar_comentario.php" method="post">
+		<p>Nombre del usuario que comentó: <input type="text" class="campos" name="comentario[nombre]" value="{{gestion.comentario.nombre}}"/></p>
+		<p>Comentario: <input type="text" class="campos" name="comentario[cuerpo]" value="{{gestion.comentario.cuerpo}}"/></p>
+		<button id="boton_editar_comentario" type="submit" name="comentario[id_comentario]" value="{{gestion.comentario.id_comentario}}">Guardar</button>
+	</form>
+	<form action="../PHP/editar_comentario.php?id={{gestion.comentario.id_comentario}}" method="post">
+		<button id="b_cancelar" type="submit" name="b_editar_comentario" value="cancelar">Cancelar</button>
+	</form>
+</div>
+{% endblock %}
