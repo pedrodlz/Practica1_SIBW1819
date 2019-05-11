@@ -81,7 +81,7 @@
                 <p class="autor_com">{{com["nombre"]}}</p>
                 <p class="fecha_com">{{com["fecha"]}}</p>
                 <p class="texto_com">{{com["cuerpo"]}}</p>
-                {% if tipo_ususario == "moderador" or tipo_usuario == "superusuario"%}
+                {% if tipo_usuario == "moderador" or tipo_usuario == "superusuario"%}
                 <form action="gestion_comentarios.php" method="post">
                     <button type="submit" name="b_gestion_comentarios" value="editar">Editar</button>
                     <button type="submit" name="b_gestion_comentarios" value="Eliminar">Eliminar</button>

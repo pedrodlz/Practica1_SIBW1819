@@ -1,0 +1,26 @@
+{% extends 'padre.html' %}
+
+{% block principal %}
+<div class="gestion_evento">
+    <h2>Lista de todos los comentarios</h2>
+
+    <table id="lista_todos_comentarios">
+        <tr>
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>Email</th>
+            <th>Comentario</th>
+            <th>ID del evento</th>
+        </tr>
+        {% for comentario in comentarios%}
+        <tr>
+            <td>{{comentario.nombre}}</td>
+            <td>{{comentario.fecha}}</td>
+            <td>{{comentario.correo}}</td>
+            <td>{{comentario.cuerpo}}</td>
+            <td>{{comentario.id}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

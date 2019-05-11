@@ -166,6 +166,16 @@
 		return $resultado;
 	}
 
+	function obtieneTodosComentarios(){
+		$bd = conectarBD();
+
+		$orden = "SELECT * FROM tiene_c ORDER BY id;";
+		$consulta = $bd->query($orden);
+		$resultado = mysqli_fetch_all($consulta,MYSQLI_BOTH);
+
+		return $resultado;
+	}
+
 	function publicaComentario($comentario){
 		$bd = conectarBD();
 

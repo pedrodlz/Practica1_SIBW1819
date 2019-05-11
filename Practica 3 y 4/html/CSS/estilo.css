@@ -249,6 +249,23 @@ header > img{
 	display:grid;
 }
 
+#lista_todos_comentarios,#lista_todos_comentarios th,#lista_todos_comentarios td{
+	border: 1px solid black;
+	color:black;
+	background-color: white;
+	border-collapse: collapse;
+	text-align: left;
+
+}
+
+#lista_todos_comentarios th,#lista_todos_comentarios td{
+	padding:15px;
+}
+
+#lista_todos_comentarios th{
+	background-color: #eee;
+}
+
 #informacion_usuario{
 	float:left;
 	text-align: left;
