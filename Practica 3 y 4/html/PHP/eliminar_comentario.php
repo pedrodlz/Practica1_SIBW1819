@@ -5,12 +5,11 @@
 
 	if( isset( $_SESSION['user'] ) ) {
 		if( $_SESSION['user']['tipo'] == "moderador" || $_SESSION['user']['tipo'] == "superusuario" ) {
-
 			if( filter_var( $_GET['id_comentario'], FILTER_VALIDATE_INT ) ) {
-				eliminarComentario( $_GET['id_comentario'] );
-				header( "location:/" );
-			} else header( "location:/" );
+				eliminarComentario($_GET['id_comentario']);				
+			}
+		}
+	}
 
-		} else header( "location:/" );
-	} else header( "location:/" );
+	header( "location:/" );
 ?>

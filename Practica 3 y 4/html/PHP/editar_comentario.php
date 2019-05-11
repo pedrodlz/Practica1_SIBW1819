@@ -15,7 +15,7 @@
 
 			if( isset( $_POST['b_editar_comentario'] ) ) {
 				if( $_POST['b_editar_comentario'] == "cancelar" ) {
-					$url = "location:/PHP/evento"
+					$url = "location:/PHP/evento";
 				}
 			}
 

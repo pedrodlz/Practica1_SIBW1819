@@ -13,18 +13,17 @@
 	if( isset( $_SESSION['user'] ) ) {
 		if( $_SESSION['user']['tipo'] == "moderador" || $_SESSION['user']['tipo'] == "superusuario" ) {
 
-			if( isset( $_POST['action_ev'] ) ) {
+			if( isset( $_POST['b_gestion_comentarios'] ) ) {
 				if( isset( $_GET['id_comentario'] ) ) {
-					if( $_POST['action_ev'] == "Eliminar" ) {
+					if( $_POST['b_gestion_comentarios'] == "Eliminar" ) {
 						$url = "location:/PHP/eliminar_comentario.php?id_comentario=".$_GET['id_comentario'];
 						header( $url );
-					} else if( $_POST['action_ev'] == "Editar" ) {
+					} else if( $_POST['b_gestion_comentarios'] == "Editar" ) {
 						$url = "location:/PHP/editar_comentario.php";
 						header( $url );
 					} else header( "location:/" );
 				} else header( "location:/" );
 			} else header( "location:/" );
-
 		} else header( "location:/" );
 	} else header( "location:/" );
 ?>
