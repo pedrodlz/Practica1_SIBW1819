@@ -19,7 +19,7 @@
 						$url = "location:/PHP/eliminar_comentario.php?id_comentario=".$_GET['id_comentario'];
 						header( $url );
 					} else if( $_POST['b_gestion_comentarios'] == "Editar" ) {
-						$url = "location:/PHP/editar_comentario.php";
+						$url = "location:/PHP/editar_comentario.php?id_comentario=".$_GET['id_comentario'];
 						header( $url );
 					} else header( "location:/" );
 				} else header( "location:/" );
