@@ -10,10 +10,7 @@
     <h2>{{evento.nombre}}</h2>
     {% if tipo_usuario == "gestor sitio" or tipo_usuario == "superusuario"%}
     <div>
-        <form action="../PHP/añadir_evento.php" method="post">
-            <button class="b_gestion_ev" type="submit" name="accion_ev" value="Añadir" >Añadir</button>
-        </form>
-        <form action="../PHP/elegir_evento.php" method="post">
+        <form action="../PHP/gestion_evento.php?evento={{evento.id}}" method="post">
             <button class="b_gestion_ev" type="submit" name="accion_ev" value="Editar" >Editar</button>
             <button class="b_gestion_ev" type="submit" name="accion_ev" value="Eliminar" >Eliminar</button>
         </form>
@@ -84,6 +81,12 @@
                 <p class="autor_com">{{com["nombre"]}}</p>
                 <p class="fecha_com">{{com["fecha"]}}</p>
                 <p class="texto_com">{{com["cuerpo"]}}</p>
+                {% if tipo_ususario == "moderador" or tipo_usuario == "superusuario"%}
+                <form action="gestion_comentarios.php" method="post">
+                    <button type="submit" name="b_gestion_comentarios" value="editar">Editar</button>
+                    <button type="submit" name="b_gestion_comentarios" value="Eliminar">Eliminar</button>
+                </form>
+                {% endif %}
             </div>
         {% endfor %}
 

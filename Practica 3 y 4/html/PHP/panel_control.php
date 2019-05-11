@@ -13,24 +13,28 @@ include_once("plantilla_sesion.php");
 if(isset($_SESSION['user'])){
     $usuario = $_SESSION['user'];
 
-    if(isset($_POST['editar_perfil'])){
-        if($_POST['editar_perfil'] == "editar"){
-            $tipo_accion = "editar";
+    if(isset($_POST['b_panel_control'])){
+        if($_POST['b_panel_control']=="cancelar"){
+            header("location:/");
         }
-        else if($_POST['editar_perfil'] == "guardar"){
-            $tipo_accion = "guardar";
+        else if($_POST['b_panel_control']=="perfil"){
+            header("location:/PHP/perfil.php");
         }
-        else $tipo_accion = "ver";
+        else if($_POST['b_panel_control']=="ver_comentarios"){
+            header("location:/PHP/ver_comentarios.php");
+        }
+        else if($_POST['b_panel_control']=="ver_eventos"){
+            header("location:/PHP/ver_eventos.php");
+        }
+        else if($_POST['b_panel_control']=="privilegios"){
+            header("location:/PHP/gestionar_privilegios.php");
+        }
     }
-    else $tipo_accion = "ver";
+    else echo $twig->render( 'panel_control.html', ['css'=>'../CSS/estilo.css',
+    'otras'=>$otras,'entrar_cerrar_sesion'=>$entrar_cerrar_sesion,
+    'sesion_abierta_cerrada'=>$sesion_abierta_cerrada,'usuario'=>$usuario] );
 }
 else{
-    $usuario = NULL;
+    header("location:/");
 }
-
-echo $twig->render( 'panel_control.html', ['css'=>'../CSS/estilo.css',
-'otras'=>$otras,'entrar_cerrar_sesion'=>$entrar_cerrar_sesion,
-'sesion_abierta_cerrada'=>$sesion_abierta_cerrada,'usuario'=>$usuario,
-'tipo_accion'=>$tipo_accion] );
-
 ?>

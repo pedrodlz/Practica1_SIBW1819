@@ -12,7 +12,7 @@
         <p>Imagen de la portada: <input type="text" class="campos" name="evento[imagen]" value="{{gestion.evento.imagen}}""/></textarea></p>
         <button id="boton_editar_evento" type="submit" name="evento[id]" value="{{gestion.evento.id}}">Guardar</button>
     </form>
-    <form action="../PHP/editar_evento.php" method="post">
+    <form action="../PHP/editar_evento.php?id={{gestion.evento.id}}" method="post">
         <button id="b_cancelar" type="submit" name="b_editar_evento" value="cancelar">Cancelar</button>
     </form>
   

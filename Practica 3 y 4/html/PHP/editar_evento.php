@@ -14,23 +14,28 @@
         if($_SESSION['user']['tipo'] == "gestor sitio" || $_SESSION['user']['tipo'] == "superusuario" ){          
 
             if(isset($_POST['b_editar_evento'])){
-                header("location:/");
+                if($_POST['b_editar_evento']=="cancelar"){
+                    $url = "location:/PHP/evento.php?evento=" . $_GET['id'];
+                    header($url);
+                }
             }
-            else{
-                if(!isset($_POST['evento'])){
-                    $gestion['accion']="Editar";
-                    $gestion['seleccionado'] = $_POST['lista_eventos'];
-                    $gestion['evento']= obtieneEvento($gestion['seleccionado']);
-                        echo $twig->render( "editar_evento.html", ['css'=>'../CSS/estilo.css',
+
+            if(!isset($_POST['evento'])){
+                if(filter_var($_GET['id'], FILTER_VALIDATE_INT)){
+                    $gestion['seleccionado'] = $_GET['id'];
+                    $gestion['evento'] = obtieneEvento($gestion['seleccionado']);
+
+                    echo $twig->render( "editar_evento.html", ['css'=>'../CSS/estilo.css',
                     'otras'=>$otras,'entrar_cerrar_sesion'=>$entrar_cerrar_sesion,
                     'sesion_abierta_cerrada'=>$sesion_abierta_cerrada,'gestion'=>$gestion] );
                 }
-                else{
-                    $resultado = editarEvento($_POST['evento']);
-                    $url = "location:/PHP/evento.php?evento=" . $_POST['evento']['id'];
-                    header($url);
-                }
-            } 
+                else header("location:/");                
+            }
+            else{
+                $resultado = editarEvento($_POST['evento']);
+                $url = "location:/PHP/evento.php?evento=" . $_POST['evento']['id'];
+                header($url);
+            }
         }
         else header("location:/");
     }
