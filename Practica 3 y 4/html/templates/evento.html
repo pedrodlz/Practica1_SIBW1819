@@ -66,8 +66,8 @@
     	<a class="icono" href="http://localhost:8080/PHP/evento_imprimir.php?imp={{evento.id}}">
         	<img src="../img/imprimir.jpeg" alt="imprimir">
         </a>
-        <input type="button" class="icono" id="facebook" onClick="compartir('Facebook','{{evento.nombre}}','{{evento.imagenes[0].enlace_i}}')">
-        <input type="button" class="icono" id="twitter" onClick="compartir('Twitter','{{evento.nombre}}','{{evento.imagenes[0].enlace_i}}')">
+        <input type="button" class="icono" id="facebook" onClick="compartir('Facebook','{{evento.nombre}}','{{evento.imagen}}')">
+        <input type="button" class="icono" id="twitter" onClick="compartir('Twitter','{{evento.nombre}}','{{evento.imagen}}')">
     </div>
 </div>
 {% endblock %}
