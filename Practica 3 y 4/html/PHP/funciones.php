@@ -193,6 +193,15 @@
 		return $mensaje;
 	}
 
+	function eliminarComentario( $id_comentario ) {
+		$bd = conectarBD();
+
+		$orden = "DELETE FROM tiene_c WHERE id_comentario='".$id_comentario."';";
+		$consulta = $bd->query( $orden );
+
+		return $consulta;
+	}
+
 	function obtienePalabrasProhibidas(){
 		$bd = conectarBD();
 		
