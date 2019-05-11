@@ -257,10 +257,6 @@ header > img{
 	text-align: left;
 }
 
-#lista_todos_comentarios th,#lista_todos_comentarios td{
-	padding:10px;
-}
-
 #lista_todos_comentarios th{
 	background-color: #eee;
 }

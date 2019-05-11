@@ -12,7 +12,6 @@
 
 	if( isset( $_SESSION['user'] ) ) {
 		if( $_SESSION['user']['tipo'] == "moderador" || $_SESSION['user']['tipo'] == "superusuario" ) {
-
 			if( isset( $_POST['b_gestion_comentarios'] ) ) {
 				if( isset( $_GET['id_comentario'] ) ) {
 					if( $_POST['b_gestion_comentarios'] == "Eliminar" ) {

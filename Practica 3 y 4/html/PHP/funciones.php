@@ -58,6 +58,18 @@
 		$orden = "DELETE FROM eventos where id='".$num_evento."';";
 		$consulta = $bd->query( $orden );
 
+		$orden = "DELETE FROM tiene_c where id='".$num_evento."';";
+		$consulta = $bd->query( $orden );
+
+		$orden = "DELETE FROM tiene_i where id='".$num_evento."';";
+		$consulta = $bd->query( $orden );
+
+		$orden = "DELETE FROM tiene_v where id='".$num_evento."';";
+		$consulta = $bd->query( $orden );
+
+		$orden = "DELETE FROM tiene_e where id='".$num_evento."';";
+		$consulta = $bd->query( $orden );
+
 		return $consulta;
 	}
 
@@ -125,6 +137,27 @@
 		return $consulta;
 	}
 
+	function editarPerfil($perfil){
+		$bd = conectarBD();
+
+		$orden = "UPDATE usuario SET 
+							nombre_usuario='".$perfil['nombre_usuario']."',
+							nombre_completo='".$perfil['nombre_completo']."',
+							email='".$perfil['email'];
+
+							if(!is_null($perfil['contraseña'])){
+								$orden = $orden."',contraseña='".$perfil['contraseña'];
+							}
+
+							$orden = $orden."',pais='".$perfil['pais']."',
+							fecha_nacimiento='".$perfil['fecha_nacimiento']."' 
+							WHERE id_usuario='".$perfil['id_usuario']."';";
+
+		$consulta = $bd->query($orden);
+
+		return $consulta;
+	}
+
 	function obtieneEvento($num_evento){
 		$bd = conectarBD();
 
@@ -176,10 +209,20 @@
 		return $resultado;
 	}
 
+	function obtieneTodosEventos(){
+		$bd = conectarBD();
+
+		$orden = "SELECT * FROM eventos ORDER BY id;";
+		$consulta = $bd->query($orden);
+		$resultado = mysqli_fetch_all($consulta,MYSQLI_BOTH);
+
+		return $resultado;
+	}
+
 	function publicaComentario($comentario){
 		$bd = conectarBD();
 
-		$orden = "INSERT INTO tiene_c VALUES ('" . $comentario["id"]."','".$comentario["ip"] . "','" . $comentario["nombre"]. "','".$comentario["correo"]."','".$comentario["fecha"]."','".$comentario["cuerpo"]."');";
+		$orden = "INSERT INTO tiene_c (id,ip,nombre,correo,fecha,cuerpo) VALUES ('" . $comentario["id"]."','".$comentario["ip"] . "','" . $comentario["nombre"]. "','".$comentario["correo"]."','".$comentario["fecha"]."','".$comentario["cuerpo"]."');";
 
 		$consulta = $bd->query($orden);
 
