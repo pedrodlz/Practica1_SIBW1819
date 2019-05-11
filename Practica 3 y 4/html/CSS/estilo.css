@@ -255,11 +255,10 @@ header > img{
 	background-color: white;
 	border-collapse: collapse;
 	text-align: left;
-
 }
 
 #lista_todos_comentarios th,#lista_todos_comentarios td{
-	padding:15px;
+	padding:10px;
 }
 
 #lista_todos_comentarios th{

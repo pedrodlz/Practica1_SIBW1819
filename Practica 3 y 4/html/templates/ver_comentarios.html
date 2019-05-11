@@ -11,6 +11,7 @@
             <th>Email</th>
             <th>Comentario</th>
             <th>ID del evento</th>
+            <th>ID del comentario</th>
         </tr>
         {% for comentario in comentarios%}
         <tr>
@@ -19,6 +20,7 @@
             <td>{{comentario.correo}}</td>
             <td>{{comentario.cuerpo}}</td>
             <td>{{comentario.id}}</td>
+            <td>{{comentario.id_comentario}}</td>
         </tr>
         {% endfor %}
     </table>
