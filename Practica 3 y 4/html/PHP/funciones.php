@@ -38,6 +38,20 @@
 		return $resultado;
 	}
 
+	function registrarse( $usuario, $contraseña, $nombre, $email, $tipo ) {
+		$bd = conectarBD();
+
+		$orden = "INSERT INTO usuario (nombre_usuario,contraseña,nombre_completo,email,tipo)
+				  VALUES ('".$usuario."','".$contraseña."','".$nombre."','".$email."','".$tipo."');";
+
+		$consulta = $bd->query( $orden );
+		$num_filas = mysqli_num_rows( $consulta );
+
+		$resultado["mensaje"] = "Registro completado";
+
+		return $resultado;
+	}
+
 	function getEventosDisp(){
 		$bd = conectarBD();
 
