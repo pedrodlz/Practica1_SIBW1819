@@ -23,6 +23,9 @@ if(isset($_SESSION['user'])){
         else if($_POST['b_panel_control']=="ver_comentarios"){
             header("location:/PHP/ver_comentarios.php");
         }
+        else if($_POST['b_panel_control']=="añadir_evento"){
+            header("location:/PHP/añadir_evento.php");
+        }
         else if($_POST['b_panel_control']=="ver_eventos"){
             header("location:/PHP/ver_eventos.php");
         }

@@ -9,6 +9,7 @@
         <button id="b_ver_comentarios" type="submit" name="b_panel_control" value="ver_comentarios">Ver comentarios</button>
     {% endif %}
     {% if usuario.tipo == "gestor sitio" or usuario.tipo == "superusuario" %}
+        <button id="b_añadir_evento" type="submit" name="b_panel_control" value="añadir_evento">Añadir evento</button>
         <button id="b_ver_eventos" type="submit" name="b_panel_control" value="ver_eventos">Ver eventos</button>
     {% endif %}
     {% if usuario.tipo == "superusuario" %}

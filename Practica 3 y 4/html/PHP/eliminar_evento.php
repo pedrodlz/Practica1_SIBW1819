@@ -8,6 +8,8 @@
         if($_SESSION['user']['tipo'] == "gestor sitio" || $_SESSION['user']['tipo'] == "superusuario" ){
             
             if(filter_var($_GET['id'], FILTER_VALIDATE_INT)){
+                eliminarEvento($_GET['id']);
+                header("location:/");
             }
             else header("location:/");
         }

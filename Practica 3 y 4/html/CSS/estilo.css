@@ -238,7 +238,7 @@ header > img{
 	float:right;
 	margin:1%;
 }
-#b_cancelar,#b_ver_eventos,#b_ver_comentarios,#b_perfil,#b_gestion_privilegios{
+#b_cancelar,#b_ver_eventos,#b_ver_comentarios,#b_perfil,#b_gestion_privilegios,#b_añadir_evento{
 	float:left;
 	margin:1%;
 }

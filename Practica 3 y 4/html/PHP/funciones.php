@@ -52,6 +52,15 @@
 		return $resultado;
 	}
 
+	function eliminarEvento($num_evento){
+		$bd = conectarBD();
+
+		$orden = "DELETE FROM eventos where id='".$num_evento."';";
+		$consulta = $bd->query( $orden );
+
+		return $consulta;
+	}
+
 	function getEventosDisp(){
 		$bd = conectarBD();
 
