@@ -21,6 +21,11 @@
             'sesion_abierta_cerrada'=>$sesion_abierta_cerrada,'gestion'=>$gestion] );       
             }
             else{
+
+                if(strlen($_POST['evento']['imagenes'][0]['enlace_i']) == 0){
+                    $_POST['evento']['imagenes'] = NULL;
+                }
+
                 $_POST['evento']['id'] = obtieneIdDisponible();
                 if(aniadirEvento($_POST['evento'])){
                     echo "Creado correctamente";

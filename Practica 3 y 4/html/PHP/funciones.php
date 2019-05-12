@@ -120,6 +120,15 @@
 
 		$consulta1 = $bd->query($orden);
 
+		//imagenes
+		if(!is_null($evento['imagenes'])){
+
+			$orden = "INSERT INTO tiene_i (id,enlace_i,creditos) VALUES
+				('".$evento['id']."','".$evento['imagenes'][0]['enlace_i']."','".$evento['imagenes'][0]['creditos']."');";
+			$consulta = $bd->query($orden);
+		}
+
+		//etiquetas
 		if(strlen($evento['etiquetas']) != 0){
 			$orden = "INSERT INTO etiquetas VALUES('".$evento['id']."','".$evento['etiquetas']."');";
 			$consulta2 = $bd->query($orden);
