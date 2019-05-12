@@ -139,6 +139,23 @@
 
 		$consulta1 = $bd->query($orden);
 
+		//Imagenes
+		if(empty($evento['imagenes'])){
+			$orden = "DELETE FROM tiene_i WHERE id='".$evento['id']."';";
+			$consulta = $bd->query($orden);
+		}
+		else{
+			$orden = "DELETE FROM tiene_i WHERE id='".$evento['id']."';";
+			$consulta = $bd->query($orden);
+
+			foreach($evento['imagenes'] as $imagen){
+				$orden = "INSERT INTO tiene_i (id,enlace_i,creditos) VALUES
+				('".$evento['id']."','".$imagen['enlace_i']."','".$imagen['creditos']."');";
+				$consulta = $bd->query($orden);
+			}
+		}
+
+		//Etiquetas
 		if(strlen($evento['etiquetas']) == 0){
 			$orden = "DELETE FROM etiquetas WHERE id_evento='".$evento['id']."';";
 			$consulta = $bd->query($orden);
@@ -200,7 +217,7 @@
 		$consulta1 = $bd->query($orden1);
 		$resultado1 = mysqli_fetch_array($consulta1);
 
-		$orden2 = "SELECT enlace_i,creditos FROM tiene_i WHERE id=" . $num_evento . ";";
+		$orden2 = "SELECT * FROM tiene_i WHERE id=" . $num_evento . ";";
 		$consulta2 = $bd->query($orden2);
 		$resultado2 = mysqli_fetch_all($consulta2,MYSQLI_BOTH);
 

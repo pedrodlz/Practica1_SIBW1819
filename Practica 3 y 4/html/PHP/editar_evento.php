@@ -24,13 +24,6 @@
                 if(filter_var($_GET['id'], FILTER_VALIDATE_INT)){
                     $gestion['seleccionado'] = $_GET['id'];
                     $gestion['evento'] = obtieneEvento($gestion['seleccionado']);
-                    $imagenes;
-
-                    foreach($gestion['evento']['imagenes'] as $img){
-                        $imagenes = $imagenes. $img['enlace_i'] .",";
-                    }
-
-                    $gestion['evento']['imagenes'] = $imagenes;
 
                     echo $twig->render( "editar_evento.html", ['css'=>'../CSS/estilo.css',
                     'otras'=>$otras,'entrar_cerrar_sesion'=>$entrar_cerrar_sesion,
@@ -40,16 +33,27 @@
             }
             else{
 
-                $imagenes = explode(",",$_POST['evento']['imagenes']);
                 $x = 0;
+                $imagenes = NULL;
 
-                foreach($imagenes as $enlace_i){
-                    $_POST['enlace']['imagenes']['enlace_i'][$x] = $enlace_i;
+                for($i = 0; $i < count($_POST['evento']['imagenes']);$i++){
+                    if(strlen($_POST['evento']['imagenes'][$i]['enlace_i']) != 0 &&
+                       strlen($_POST['evento']['imagenes'][$i]['id']) != 0){
+                        $imagenes[$x]['enlace_i'] = $_POST['evento']['imagenes'][$i]['enlace_i'];
+                        $imagenes[$x]['creditos'] = $_POST['evento']['imagenes'][$i]['creditos'];
+                        $imagenes[$x]['id'] = $_POST['evento']['imagenes'][$i]['id'];
+                        $x++;
+                    }
                 }
 
-                /*$resultado = editarEvento($_POST['evento']);
+                if(is_null($imagenes)){
+                    $_POST['evento']['imagenes'] = NULL;
+                }
+                else $_POST['evento']['imagenes'] = $imagenes;
+
+                $resultado = editarEvento($_POST['evento']);
                 $url = "location:/PHP/evento.php?evento=" . $_POST['evento']['id'];
-                header($url);*/
+                header($url);
             }
         }
         else header("location:/");
