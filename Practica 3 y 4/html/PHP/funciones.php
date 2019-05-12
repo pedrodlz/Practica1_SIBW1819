@@ -67,7 +67,7 @@
 		$orden = "DELETE FROM tiene_v where id='".$num_evento."';";
 		$consulta = $bd->query( $orden );
 
-		$orden = "DELETE FROM tiene_e where id='".$num_evento."';";
+		$orden = "DELETE FROM etiquetas where id_evento='".$num_evento."';";
 		$consulta = $bd->query( $orden );
 
 		return $consulta;
@@ -118,9 +118,14 @@
 							'".$evento['fecha_p_m']."'
 							);";
 
-		$consulta = $bd->query($orden);
+		$consulta1 = $bd->query($orden);
+
+		if(strlen($evento['etiquetas']) != 0){
+			$orden = "INSERT INTO etiquetas VALUES('".$evento['id']."','".$evento['etiquetas']."');";
+			$consulta2 = $bd->query($orden);
+		}
 		
-		return $consulta;
+		return $consulta1;
 	}
 
 	function editarEvento($evento){
@@ -132,9 +137,28 @@
 							fecha='".$evento['fecha']."',texto='".$evento['texto']."',
 							imagen='".$evento['imagen']."',fecha_p_m='".$evento['fecha_p_m']."' WHERE id='".$evento[id]."';";
 
-		$consulta = $bd->query($orden);
+		$consulta1 = $bd->query($orden);
 
-		return $consulta;
+		if(strlen($evento['etiquetas']) == 0){
+			$orden = "DELETE FROM etiquetas WHERE id_evento='".$evento['id']."';";
+			$consulta = $bd->query($orden);
+		}
+		else{
+			$orden = "SELECT * FROM etiquetas where id_evento='".$evento['id']."';";
+			$consulta = $bd->query($orden);
+			$num_filas = mysqli_num_rows($consulta);
+
+			if($num_filas == 0){
+				$orden = "INSERT INTO etiquetas VALUES('".$evento['id']."','".$evento['etiquetas']."');";
+			}
+			else{
+				$orden = "UPDATE etiquetas SET tags = '".$evento['etiquetas']."' WHERE id_evento='".$evento['id']."';";
+			}
+
+			$consulta = $bd->query($orden);
+		}
+
+		return $consulta1 && $consulta;
 	}
 
 	function editarComentario( $comentario ) {
@@ -154,10 +178,10 @@
 		$orden = "UPDATE usuario SET 
 							nombre_usuario='".$perfil['nombre_usuario']."',
 							nombre_completo='".$perfil['nombre_completo']."',
-							email='".$perfil['email'];
+							email='".$perfil['email']."'";
 
 							if(!is_null($perfil['contraseña'])){
-								$orden = $orden."',contraseña='".$perfil['contraseña'];
+								$orden = $orden.",contraseña='".$perfil['contraseña'];
 							}
 
 							$orden = $orden."',pais='".$perfil['pais']."',
@@ -172,7 +196,7 @@
 	function obtieneEvento($num_evento){
 		$bd = conectarBD();
 
-		$orden1 = "SELECT * FROM eventos WHERE id=" . $num_evento . ";";
+		$orden1 = "SELECT * FROM eventos WHERE id='" . $num_evento . "';";
 		$consulta1 = $bd->query($orden1);
 		$resultado1 = mysqli_fetch_array($consulta1);
 
@@ -182,16 +206,11 @@
 
 		$resultado1["imagenes"] = $resultado2;
 
-		$orden3 = "SELECT nombre FROM tiene_e WHERE id=" . $num_evento . ";";
+		$orden3 = "SELECT tags FROM etiquetas WHERE id_evento=" . $num_evento . ";";
 		$consulta3 = $bd->query($orden3);
-		$num_filas = mysqli_num_rows($consulta3);
-		$datos = mysqli_fetch_all($consulta3,MYSQLI_BOTH);
+		$datos = mysqli_fetch_array($consulta3);
 
-		for($x = 0; $x < $num_filas; $x++){
-			$resultado[$x] = $datos[$x][0];
-		}
-
-		$resultado1["etiquetas"] = $resultado;
+		$resultado1["etiquetas"] = $datos[0];		
 
 		$orden4 = "SELECT enlace_v FROM tiene_v WHERE id=" . $num_evento . ";";
 		$consulta4 = $bd->query($orden4);

@@ -145,28 +145,6 @@ mysqli orientado a objetos)
 -Hay posibilidad de incluir vı́deos (5 %)
 -Extras (10 %)');
 
-CREATE TABLE etiquetas(
-	nombre VARCHAR(30),
-	PRIMARY KEY(nombre)
-);
-
-INSERT INTO etiquetas VALUES ('Nintendo');
-INSERT INTO etiquetas VALUES ('Multijugador');
-INSERT INTO etiquetas VALUES ('+3');
-INSERT INTO etiquetas VALUES ('Mario Kart');
-INSERT INTO etiquetas VALUES ('Pokemon');
-INSERT INTO etiquetas VALUES ('Realidad Aumentada');
-INSERT INTO etiquetas VALUES ('Telefonos');
-INSERT INTO etiquetas VALUES ('Consola');
-INSERT INTO etiquetas VALUES ('Comparativa');
-INSERT INTO etiquetas VALUES ('Niantic');
-INSERT INTO etiquetas VALUES ('Ubisoft');
-INSERT INTO etiquetas VALUES ('Assasin\'s Creed');
-INSERT INTO etiquetas VALUES ('League of Legends');
-INSERT INTO etiquetas VALUES ('Riot Games');
-INSERT INTO etiquetas VALUES ('MOBA');
-INSERT INTO etiquetas VALUES ('PC');
-
 
 CREATE TABLE tiene_i(
 	enlace_i VARCHAR(100),
@@ -185,30 +163,16 @@ INSERT INTO tiene_i VALUES ('img/5_1.jpg','5','Fortnite');
 INSERT INTO tiene_i VALUES ('img/5_2.jpeg','5','Fortnite');
 INSERT INTO tiene_i VALUES ('img/5_3.jpg','5','Fortnite');
 
-CREATE TABLE tiene_e(
-	nombre VARCHAR(30),
-	id VARCHAR(5),
-	PRIMARY KEY (id,nombre)
+CREATE TABLE etiquetas(
+	id_evento VARCHAR(5),
+	tags VARCHAR(200),
+	PRIMARY KEY (id_evento)
 );
 
-INSERT INTO tiene_e VALUES ('Nintendo','1');
-INSERT INTO tiene_e VALUES ('Multijugador','1');
-INSERT INTO tiene_e VALUES ('+3','1');
-INSERT INTO tiene_e VALUES ('Mario Kart','1');
-INSERT INTO tiene_e VALUES ('Pokemon','2');
-INSERT INTO tiene_e VALUES ('Realidad Aumentada','2');
-INSERT INTO tiene_e VALUES ('Telefonos','2');
-INSERT INTO tiene_e VALUES ('Consola','1');
-INSERT INTO tiene_e VALUES ('Comparativa','3');
-INSERT INTO tiene_e VALUES ('Consola','3');
-INSERT INTO tiene_e VALUES ('PC','3');
-INSERT INTO tiene_e VALUES ('Niantic','2');
-INSERT INTO tiene_e VALUES ('Ubisoft','3');
-INSERT INTO tiene_e VALUES ('Assasin\'s Creed','3');
-INSERT INTO tiene_e VALUES ('League of Legends','4');
-INSERT INTO tiene_e VALUES ('Riot Games','4');
-INSERT INTO tiene_e VALUES ('MOBA','4');
-INSERT INTO tiene_e VALUES ('PC','4');
+INSERT INTO etiquetas VALUES ('1','Nintendo,Multijugador,+3,Mario Kart,Consola');
+INSERT INTO etiquetas VALUES ('2','Pokemon,Niantic,Realidad Aumentada,Telefonos');
+INSERT INTO etiquetas VALUES ('3','Comparativa,Consola,PC,Ubisoft,Assasins Creed');
+INSERT INTO etiquetas VALUES ('4','League of Legends,Riot Games,MOBA,PC');
 
 
 CREATE TABLE tiene_v(

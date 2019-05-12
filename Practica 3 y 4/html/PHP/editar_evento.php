@@ -24,6 +24,13 @@
                 if(filter_var($_GET['id'], FILTER_VALIDATE_INT)){
                     $gestion['seleccionado'] = $_GET['id'];
                     $gestion['evento'] = obtieneEvento($gestion['seleccionado']);
+                    $imagenes;
+
+                    foreach($gestion['evento']['imagenes'] as $img){
+                        $imagenes = $imagenes. $img['enlace_i'] .",";
+                    }
+
+                    $gestion['evento']['imagenes'] = $imagenes;
 
                     echo $twig->render( "editar_evento.html", ['css'=>'../CSS/estilo.css',
                     'otras'=>$otras,'entrar_cerrar_sesion'=>$entrar_cerrar_sesion,
@@ -32,9 +39,17 @@
                 else header("location:/");                
             }
             else{
-                $resultado = editarEvento($_POST['evento']);
+
+                $imagenes = explode(",",$_POST['evento']['imagenes']);
+                $x = 0;
+
+                foreach($imagenes as $enlace_i){
+                    $_POST['enlace']['imagenes']['enlace_i'][$x] = $enlace_i;
+                }
+
+                /*$resultado = editarEvento($_POST['evento']);
                 $url = "location:/PHP/evento.php?evento=" . $_POST['evento']['id'];
-                header($url);
+                header($url);*/
             }
         }
         else header("location:/");
