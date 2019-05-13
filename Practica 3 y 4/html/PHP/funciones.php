@@ -78,7 +78,6 @@
 
 		$orden = "SELECT id,nombre FROM eventos;";
 		$consulta = $bd->query($orden);
-		$num_filas = mysqli_num_rows($consulta);
 		$resultado = mysqli_fetch_all($consulta,MYSQLI_BOTH);
 
 		return $resultado;
@@ -207,10 +206,10 @@
 							email='".$perfil['email']."'";
 
 							if(!is_null($perfil['contraseña'])){
-								$orden = $orden.",contraseña='".$perfil['contraseña'];
+								$orden = $orden.",contraseña='".$perfil['contraseña']."'";
 							}
 
-							$orden = $orden."',pais='".$perfil['pais']."',
+							$orden = $orden.",pais='".$perfil['pais']."',
 							fecha_nacimiento='".$perfil['fecha_nacimiento']."' 
 							WHERE id_usuario='".$perfil['id_usuario']."';";
 
@@ -285,6 +284,26 @@
 		return $resultado;
 	}
 
+	function getNumSuperusuarios(){
+		$bd = conectarBD();
+
+		$orden = "SELECT nombre_usuario FROM usuario WHERE tipo = 'superusuario';";
+		$consulta = $bd->query($orden);
+		$num_filas = mysqli_num_rows($consulta);
+
+		return $num_filas;
+	}
+
+	function isSuperusuario($id){
+		$bd = conectarBD();
+
+		$orden = "SELECT nombre_usuario FROM usuario WHERE tipo = 'superusuario' 
+																									AND id_usuario='".$id."';";
+		$consulta = $bd->query($orden);
+		$num_filas = mysqli_num_rows($consulta);
+
+		return $num_filas;
+	}
 	function getUsuarios(){
 		$bd = conectarBD();
 
