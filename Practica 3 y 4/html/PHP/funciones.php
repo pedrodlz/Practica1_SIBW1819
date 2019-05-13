@@ -191,7 +191,7 @@
 
 		$orden = "UPDATE tiene_c SET nombre='".$comentario['nombre']."',
 				  cuerpo='".$comentario['cuerpo']."',
-				  editado='[Mensaje editado por un moderador]'
+				  editado='[Mensaje editado por el moderador]'
 				  WHERE id_comentario='".$comentario['id_comentario']."';";
 
 		$consulta = $bd->query( $orden );
@@ -327,7 +327,8 @@
 	function publicaComentario($comentario){
 		$bd = conectarBD();
 
-		$orden = "INSERT INTO tiene_c (id,ip,nombre,correo,fecha,cuerpo) VALUES ('" . $comentario["id"]."','".$comentario["ip"] . "','" . $comentario["nombre"]. "','".$comentario["correo"]."','".$comentario["fecha"]."','".$comentario["cuerpo"]."');";
+		$orden = "INSERT INTO tiene_c (id,ip,nombre,correo,fecha,cuerpo) VALUES 
+		('" . $comentario["id"]."','".$comentario["ip"] . "','" . $comentario["nombre"]. "','".$comentario["correo"]."','".$comentario["fecha"]."','".$comentario["cuerpo"]."');";
 
 		$consulta = $bd->query($orden);
 

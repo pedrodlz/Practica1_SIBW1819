@@ -13,9 +13,12 @@
 	if( isset( $_SESSION['user'] ) ) {
 		if( $_SESSION['user']['tipo'] == "moderador" || $_SESSION['user']['tipo'] == "superusuario" ) {
 
+			$gestion['id_evento'] = $_GET['id_evento'];
+			
 			if( isset( $_POST['b_editar_comentario'] ) ) {
 				if( $_POST['b_editar_comentario'] == "cancelar" ) {
-					header( "location:/" );
+					$url = "location:/PHP/evento.php?evento=".$_GET['id_evento'];
+					header($url);
 				}
 			}
 
@@ -30,7 +33,8 @@
 				} else header( "location:/" );
 			} else {
 				$resultado = editarComentario( $_POST['comentario'] );
-				header( "location:/" );
+				$url = "location:/PHP/evento.php?evento=".$_GET['id_evento'];
+				header($url);
 			}
 
 		} else header( "location:/" );

@@ -83,7 +83,7 @@
                 <p class="fecha_com">{{com["fecha"]}}</p>
                 <p class="texto_com">{{com["cuerpo"]}}</p>
                 {% if tipo_usuario == "moderador" or tipo_usuario == "superusuario"%}
-                <form action="gestion_comentarios.php?id_comentario={{com.id_comentario}}" method="post">
+                <form action="gestion_comentarios.php?id_comentario={{com.id_comentario}}&id_evento={{evento.id}}" method="post">
                     <button type="submit" name="b_gestion_comentarios" value="Editar">Editar</button>
                     <button type="submit" name="b_gestion_comentarios" value="Eliminar">Eliminar</button>
                 </form>
