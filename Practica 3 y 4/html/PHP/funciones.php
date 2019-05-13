@@ -190,7 +190,8 @@
 		$bd = conectarBD();
 
 		$orden = "UPDATE tiene_c SET nombre='".$comentario['nombre']."',
-				  cuerpo='".$comentario['cuerpo']."'
+				  cuerpo='".$comentario['cuerpo']."',
+				  editado='[Mensaje editado por un moderador]'
 				  WHERE id_comentario='".$comentario['id_comentario']."';";
 
 		$consulta = $bd->query( $orden );

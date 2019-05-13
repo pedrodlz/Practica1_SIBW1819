@@ -48,7 +48,12 @@
 
         {% if evento.etiquetas is not empty %}
         <div id="etiquetas">
-            <p>Etiquetas: {{evento.etiquetas}}</p>
+            <p>Etiquetas: |
+
+            {% for etiq in evento.etiquetas %}
+                {{etiq}} |
+            {% endfor %}
+            
         </div>
         {% endif %}
         
@@ -73,7 +78,8 @@
     <h2> Comentarios </h2>
         {% for com in comentarios %}
             <div class="coment">
-                <p class="autor_com">{{com["nombre"]}}</p>
+                <p class="autor_com">{{com["nombre"]}} </p>
+                    <p class="autor_com">{{com["editado"]}}</p>
                 <p class="fecha_com">{{com["fecha"]}}</p>
                 <p class="texto_com">{{com["cuerpo"]}}</p>
                 {% if tipo_usuario == "moderador" or tipo_usuario == "superusuario"%}
