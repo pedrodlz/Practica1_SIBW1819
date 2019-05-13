@@ -285,6 +285,25 @@
 		return $resultado;
 	}
 
+	function getUsuarios(){
+		$bd = conectarBD();
+
+		$orden = "SELECT id_usuario,nombre_usuario FROM usuario ORDER BY nombre_usuario;";
+		$consulta = $bd->query($orden);
+		$resultado = mysqli_fetch_all($consulta,MYSQLI_BOTH);
+
+		return $resultado;
+	}
+
+	function cambiarPrivilegios($usuario_id,$privilegios){
+		$bd = conectarBD();
+
+		$orden = "UPDATE usuario SET tipo = '".$privilegios."' WHERE id_usuario='".$usuario_id."';";
+		$consulta = $bd->query($orden);
+
+		return $consulta;
+	}
+
 	function publicaComentario($comentario){
 		$bd = conectarBD();
 

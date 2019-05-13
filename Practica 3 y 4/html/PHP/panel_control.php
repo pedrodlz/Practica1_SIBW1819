@@ -30,7 +30,7 @@ if(isset($_SESSION['user'])){
             header("location:/PHP/ver_eventos.php");
         }
         else if($_POST['b_panel_control']=="privilegios"){
-            header("location:/PHP/gestionar_privilegios.php");
+            header("location:/PHP/gestion_privilegios.php");
         }
     }
     else echo $twig->render( 'panel_control.html', ['css'=>'../CSS/estilo.css',
