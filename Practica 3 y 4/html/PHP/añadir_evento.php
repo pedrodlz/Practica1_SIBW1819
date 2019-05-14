@@ -27,9 +27,8 @@
                 }
 
                 $_POST['evento']['id'] = obtieneIdDisponible();
-                if(aniadirEvento($_POST['evento'])){
-                    echo "Creado correctamente";
-                }
+                aniadirEvento($_POST['evento']);
+
                 $url = "location:/PHP/evento.php?evento=" . $_POST['evento']['id'];
                 header($url);
             }

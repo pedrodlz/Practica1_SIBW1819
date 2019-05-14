@@ -110,14 +110,14 @@
 		$bd = conectarBD();
 
 		$evento['fecha_p_m'] = date('y-m-d h:i:s',time());
-		$orden = "INSERT INTO eventos VALUES (
+		$orden = "INSERT INTO eventos (id,nombre,organizador,fecha,texto,imagen,fecha_p_m,etiquetas) VALUES (
 							'".$evento['id']."',
 							'".$evento['nombre']."',
 							'".$evento['organizador']."',
 							'".$evento['fecha']."',
 							'".$evento['texto']."',
 							'".$evento['imagen']."',
-							'".$evento['fecha_p_m']."'
+							'".$evento['fecha_p_m']."',
 							'".$evento['etiquetas']."'
 							);";
 
@@ -131,7 +131,7 @@
 			$consulta = $bd->query($orden);
 		}
 		
-		return $consulta1 && $consulta;
+		return $consulta1;
 	}
 
 	function editarEvento($evento){
