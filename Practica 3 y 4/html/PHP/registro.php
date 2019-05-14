@@ -11,8 +11,8 @@
 	include_once( "plantilla_sesion.php" );
 
 	if( !isset( $_SESSION['user'] ) ) {
-		if( isset( $_POST['nombre_registro'] ) && isset( $_POST['contraseña_registro']) &&
-			isset( $_POST['nombre_completo_registro'] ) && isset( $_POST['email_registro'] ) &&
+		if( strlen( $_POST['nombre_registro'] ) > 0 && strlen( $_POST['contraseña_registro']) > 0 &&
+			strlen( $_POST['nombre_completo_registro'] ) > 0 && strlen( $_POST['email_registro'] ) > 0 &&
 			isset( $_POST['tipo_registro'] ) ) {
 
 			$nombre = $_POST['nombre_registro'];
@@ -23,18 +23,23 @@
 
 			$registro = registrarse( $nombre, $pass, $nombre_completo, $email, $tipo );
 
-			$login = entrar( $nombre, $pass );
-
-			if( $login['error'] == 2 ) {
-				$_SESSION['user'] = $login['usuario'];
-
-				$entrar_cerrar_sesion = "cerrar_sesion.php";
-				$sesion_abierta_cerrada = "Cerrar sesion";
-
-				header( "location:/" );
+			if($registro['tipo'] == 1){
+				$error = $registro['mensaje'];
 			}
+			else{
+				$login = entrar( $nombre, $pass );
 
-			$error = $login["mensaje"];
+				if( $login['error'] == 2 ) {
+					$_SESSION['user'] = $login['usuario'];
+
+					$entrar_cerrar_sesion = "cerrar_sesion.php";
+					$sesion_abierta_cerrada = "Cerrar sesion";
+
+					header( "location:/" );
+				}
+
+				$error = $login["mensaje"];
+			}			
 
 		} else {
 			$error = "No puede haber campos vacíos";

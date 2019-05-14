@@ -47,7 +47,13 @@
 		$consulta = $bd->query( $orden );
 		$num_filas = mysqli_num_rows( $consulta );
 
-		$resultado["mensaje"] = "Registro completado";
+		if($consulta){
+			$resultado['tipo'] = 0;
+		}
+		else{
+			$resultado['tipo'] = 1;
+			$resultado['mensaje'] = "Usuario existe";
+		}		
 
 		return $resultado;
 	}
