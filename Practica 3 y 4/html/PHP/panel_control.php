@@ -14,34 +14,33 @@ if(isset($_SESSION['user'])){
     $usuario = $_SESSION['user'];
 
     if(isset($_POST['b_panel_control'])){
-        if($_POST['b_panel_control']=="cancelar"){
-            header("location:/");
+        switch($_POST['b_panel_control']){
+            case "cancelar":
+                header("location:/");
+                break;
+            case "perfil":
+                header("location:/PHP/perfil.php");
+                break;
+            case "ver_comentarios":
+                header("location:/PHP/ver_comentarios.php");
+                break;
+            case "añadir_evento":
+                header("location:/PHP/añadir_evento.php");
+                break;
+            case "ver_eventos":
+                header("location:/PHP/ver_eventos.php");
+                break;
+            case "privilegios":
+                header("location:/PHP/gestion_privilegios.php");
+                break;
+            case "buscar_comentarios":
+                header("location:/PHP/buscar_comentarios.php");
+                break;
+            case "buscar_eventos":
+                header("location:/PHP/buscar_eventos.php");
+                break;
+            default: header("location:/");
         }
-        else if($_POST['b_panel_control']=="perfil"){
-            header("location:/PHP/perfil.php");
-        }
-        else if($_POST['b_panel_control']=="ver_comentarios"){
-            header("location:/PHP/ver_comentarios.php");
-        }
-        else if($_POST['b_panel_control']=="añadir_evento"){
-            header("location:/PHP/añadir_evento.php");
-        }
-        else if($_POST['b_panel_control']=="ver_eventos"){
-            header("location:/PHP/ver_eventos.php");
-        }
-        else if($_POST['b_panel_control']=="privilegios"){
-            header("location:/PHP/gestion_privilegios.php");
-        }
-        else if($_POST['b_panel_control']=="privilegios"){
-            header("location:/PHP/gestion_privilegios.php");
-        }
-        else if($_POST['b_panel_control']=="buscar_comentarios"){
-            header("location:/PHP/buscar_comentarios.php");
-        }
-        else if($_POST['b_panel_control']=="buscar_eventos"){
-            header("location:/PHP/buscar_eventos.php");
-        }
-        else header("location:/");
     }
     else echo $twig->render( 'panel_control.html', ['css'=>'../CSS/estilo.css',
     'otras'=>$otras,'entrar_cerrar_sesion'=>$entrar_cerrar_sesion,

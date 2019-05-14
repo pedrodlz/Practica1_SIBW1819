@@ -12,7 +12,6 @@
 
     if(isset($_SESSION['user'])){
         if($_SESSION['user']['tipo'] == "gestor sitio" || $_SESSION['user']['tipo'] == "superusuario" ){
-            
             if(isset($_POST['accion_ev'])){
                 if(isset($_GET['evento'])){
                     if($_POST['accion_ev']=="Editar"){

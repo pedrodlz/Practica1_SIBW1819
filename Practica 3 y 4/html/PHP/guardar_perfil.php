@@ -28,18 +28,18 @@
                 }
                 else $_POST['perfil']['contraseña'] = NULL;
                 
-                $resultado = editarPerfil($_POST['perfil']);
-                $nombre = $_SESSION['user']['nombre_usuario'];
-                $pass = $_SESSION['user']['contraseña'];
+                if(editarPerfil($_POST['perfil'])){
+                    $nombre = $_SESSION['user']['nombre_usuario'];
+                    $pass = $_SESSION['user']['contraseña'];
 
-                session_start();
-                session_unset();
-                session_destroy();
-                
-                session_start();
-                $login = entrar($nombre,$pass);
-                $_SESSION['user'] = $login['usuario'];
-
+                    session_start();
+                    session_unset();
+                    session_destroy();
+                    
+                    session_start();
+                    $login = entrar($nombre,$pass);
+                    $_SESSION['user'] = $login['usuario'];
+                }
                 header("location:/PHP/perfil.php");
             }
         }
