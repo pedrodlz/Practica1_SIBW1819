@@ -32,6 +32,16 @@ if(isset($_SESSION['user'])){
         else if($_POST['b_panel_control']=="privilegios"){
             header("location:/PHP/gestion_privilegios.php");
         }
+        else if($_POST['b_panel_control']=="privilegios"){
+            header("location:/PHP/gestion_privilegios.php");
+        }
+        else if($_POST['b_panel_control']=="buscar_comentarios"){
+            header("location:/PHP/buscar_comentarios.php");
+        }
+        else if($_POST['b_panel_control']=="buscar_eventos"){
+            header("location:/PHP/buscar_eventos.php");
+        }
+        else header("location:/");
     }
     else echo $twig->render( 'panel_control.html', ['css'=>'../CSS/estilo.css',
     'otras'=>$otras,'entrar_cerrar_sesion'=>$entrar_cerrar_sesion,

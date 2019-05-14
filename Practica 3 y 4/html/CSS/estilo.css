@@ -222,6 +222,15 @@ header > img{
 	padding: 5px 7px;	
 }
 
+.campo_busqueda{
+	width: 50%;
+	margin:10px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	padding: 5px 7px;
+}
+
 #cuerpo_f{
 	height: 150px;
 	padding: 10px 12px;	
@@ -238,9 +247,13 @@ header > img{
 	float:right;
 	margin:1%;
 }
-#b_cancelar,#b_ver_eventos,#b_ver_comentarios,#b_perfil,#b_gestion_privilegios,#b_añadir_evento{
+#b_cancelar,#b_ver_eventos,#b_ver_comentarios,#b_perfil,#b_gestion_privilegios,#b_añadir_evento,#b_buscar_comentarios,#b_buscar_eventos{
 	float:left;
 	margin:1%;
+}
+
+#b_cancelar{
+	background-color: rgb(194, 48, 48);
 }
 
 #opciones_panel_control{
@@ -255,6 +268,7 @@ header > img{
 	background-color: white;
 	border-collapse: collapse;
 	text-align: left;
+	font-size: 10px;
 }
 
 #lista_todos_comentarios th{
@@ -275,7 +289,7 @@ header > img{
 	font-size: 1.8vw;
 }
 
-.evento h2, .login h2, .registrarse h2, .panel_control h2, .gestion_evento h2,.gestion_privilegios h2{
+.evento h2, .login h2, .registrarse h2, .panel_control h2, .gestion_evento h2,.gestion_privilegios h2,.busqueda_evento h2{
 	background-color: FireBrick;
 	border-radius: 15px 15px 0 0;
 	margin:0;

@@ -64,12 +64,6 @@ CREATE TABLE tiene_c (
 -----------------------------------------------------------------------------
 
 
-CREATE TABLE video(
-	enlace_v VARCHAR(100),
-	PRIMARY KEY(enlace_v)
-);
-
-INSERT INTO video VALUES ('vid/mario_kart_video');
 
 CREATE TABLE otras(
 	enlace_o VARCHAR(100),
@@ -149,7 +143,7 @@ mysqli orientado a objetos)
 CREATE TABLE tiene_i(
 	enlace_i VARCHAR(100),
 	id VARCHAR(5),
-	PRIMARY KEY (enlace_i)
+	PRIMARY KEY (enlace_i,id)
 );
 
 INSERT INTO tiene_i VALUES ('img/1_1','1','Nintendo: Mario Kart');

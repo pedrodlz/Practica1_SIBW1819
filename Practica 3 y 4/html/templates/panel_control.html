@@ -7,10 +7,12 @@
         <button id="b_perfil" type="submit" name="b_panel_control" value="perfil" >Perfil</button>
     {% if usuario.tipo == "moderador" or usuario.tipo == "superusuario" %}
         <button id="b_ver_comentarios" type="submit" name="b_panel_control" value="ver_comentarios">Ver comentarios</button>
+        <button id="b_buscar_comentarios" type="submit" name="b_panel_control" value="buscar_comentarios">Buscar comentarios</button>
     {% endif %}
     {% if usuario.tipo == "gestor sitio" or usuario.tipo == "superusuario" %}
         <button id="b_añadir_evento" type="submit" name="b_panel_control" value="añadir_evento">Añadir evento</button>
         <button id="b_ver_eventos" type="submit" name="b_panel_control" value="ver_eventos">Ver eventos</button>
+        <button id="b_buscar_eventos" type="submit" name="b_panel_control" value="buscar_eventos">Buscar eventos</button>
     {% endif %}
     {% if usuario.tipo == "superusuario" %}
     <button id="b_gestion_privilegios" type="submit" name="b_panel_control" value="privilegios">Gestionar privilegios</button>

@@ -1,0 +1,35 @@
+{% extends 'padre.html' %}
+
+{% block principal %}
+<div class="gestion_evento">
+    <h2>Buscar comentarios</h2>
+
+    <form action="buscar_comentarios.php" method="post">
+        <input class="campo_busqueda" type="text" name="busqueda">
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if comentarios is not empty %}
+    <table id="lista_todos_comentarios">
+        <tr>
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>Email</th>
+            <th>Comentario</th>
+            <th>ID del evento</th>
+            <th>ID del comentario</th>
+        </tr>
+        {% for comentario in comentarios%}
+        <tr>
+            <td>{{comentario.nombre}}</td>
+            <td>{{comentario.fecha}}</td>
+            <td>{{comentario.correo}}</td>
+            <td>{{comentario.cuerpo}}</td>
+            <td>{{comentario.id}}</td>
+            <td>{{comentario.id_comentario}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+{% endblock %}

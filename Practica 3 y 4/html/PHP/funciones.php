@@ -67,9 +67,6 @@
 		$orden = "DELETE FROM tiene_v where id='".$num_evento."';";
 		$consulta = $bd->query( $orden );
 
-		$orden = "DELETE FROM etiquetas where id_evento='".$num_evento."';";
-		$consulta = $bd->query( $orden );
-
 		return $consulta;
 	}
 
@@ -115,6 +112,7 @@
 							'".$evento['texto']."',
 							'".$evento['imagen']."',
 							'".$evento['fecha_p_m']."'
+							'".$evento['etiquetas']."'
 							);";
 
 		$consulta1 = $bd->query($orden);
@@ -126,14 +124,8 @@
 				('".$evento['id']."','".$evento['imagenes'][0]['enlace_i']."','".$evento['imagenes'][0]['creditos']."');";
 			$consulta = $bd->query($orden);
 		}
-
-		//etiquetas
-		if(strlen($evento['etiquetas']) != 0){
-			$orden = "INSERT INTO etiquetas VALUES('".$evento['id']."','".$evento['etiquetas']."');";
-			$consulta2 = $bd->query($orden);
-		}
 		
-		return $consulta1;
+		return $consulta1 && $consulta;
 	}
 
 	function editarEvento($evento){
@@ -143,7 +135,8 @@
 		$orden = "UPDATE eventos SET nombre='".$evento[nombre]."',
 							organizador='".$evento['organizador']."',
 							fecha='".$evento['fecha']."',texto='".$evento['texto']."',
-							imagen='".$evento['imagen']."',fecha_p_m='".$evento['fecha_p_m']."' WHERE id='".$evento[id]."';";
+							imagen='".$evento['imagen']."',fecha_p_m='".$evento['fecha_p_m']."',
+							etiquetas='".$evento['etiquetas']."' WHERE id='".$evento[id]."';";
 
 		$consulta1 = $bd->query($orden);
 
@@ -161,26 +154,6 @@
 				('".$evento['id']."','".$imagen['enlace_i']."','".$imagen['creditos']."');";
 				$consulta = $bd->query($orden);
 			}
-		}
-
-		//Etiquetas
-		if(strlen($evento['etiquetas']) == 0){
-			$orden = "DELETE FROM etiquetas WHERE id_evento='".$evento['id']."';";
-			$consulta = $bd->query($orden);
-		}
-		else{
-			$orden = "SELECT * FROM etiquetas where id_evento='".$evento['id']."';";
-			$consulta = $bd->query($orden);
-			$num_filas = mysqli_num_rows($consulta);
-
-			if($num_filas == 0){
-				$orden = "INSERT INTO etiquetas VALUES('".$evento['id']."','".$evento['etiquetas']."');";
-			}
-			else{
-				$orden = "UPDATE etiquetas SET tags = '".$evento['etiquetas']."' WHERE id_evento='".$evento['id']."';";
-			}
-
-			$consulta = $bd->query($orden);
 		}
 
 		return $consulta1 && $consulta;
@@ -224,19 +197,13 @@
 
 		$orden1 = "SELECT * FROM eventos WHERE id='" . $num_evento . "';";
 		$consulta1 = $bd->query($orden1);
-		$resultado1 = mysqli_fetch_array($consulta1);
+		$resultado1 = mysqli_fetch_array($consulta1,MYSQLI_BOTH);
 
 		$orden2 = "SELECT * FROM tiene_i WHERE id=" . $num_evento . ";";
 		$consulta2 = $bd->query($orden2);
 		$resultado2 = mysqli_fetch_all($consulta2,MYSQLI_BOTH);
 
 		$resultado1["imagenes"] = $resultado2;
-
-		$orden3 = "SELECT tags FROM etiquetas WHERE id_evento=" . $num_evento . ";";
-		$consulta3 = $bd->query($orden3);
-		$datos = mysqli_fetch_array($consulta3);
-
-		$resultado1["etiquetas"] = $datos[0];		
 
 		$orden4 = "SELECT enlace_v FROM tiene_v WHERE id=" . $num_evento . ";";
 		$consulta4 = $bd->query($orden4);
@@ -279,6 +246,37 @@
 		$bd = conectarBD();
 
 		$orden = "SELECT * FROM eventos ORDER BY id;";
+		$consulta = $bd->query($orden);
+		$resultado = mysqli_fetch_all($consulta,MYSQLI_BOTH);
+
+		return $resultado;
+	}
+
+	function buscarEventos($busqueda){
+		$bd = conectarBD();
+
+		$orden = "SELECT * 
+							FROM eventos 
+							WHERE 
+								nombre LIKE '%".$busqueda."%' OR
+								organizador LIKE '%".$busqueda."%' OR
+								texto LIKE '%".$busqueda."%' OR
+								etiquetas LIKE '%".$busqueda."%';";
+		$consulta = $bd->query($orden);
+		$resultado = mysqli_fetch_all($consulta,MYSQLI_BOTH);
+
+		return $resultado;
+	}
+
+	function buscarComentarios($busqueda){
+		$bd = conectarBD();
+
+		$orden = "SELECT * 
+							FROM tiene_c 
+							WHERE 
+								nombre LIKE '%".$busqueda."%' OR
+								correo LIKE '%".$busqueda."%' OR
+								cuerpo LIKE '%".$busqueda."%';";
 		$consulta = $bd->query($orden);
 		$resultado = mysqli_fetch_all($consulta,MYSQLI_BOTH);
 

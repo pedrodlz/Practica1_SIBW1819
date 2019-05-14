@@ -48,12 +48,7 @@
 
         {% if evento.etiquetas is not empty %}
         <div id="etiquetas">
-            <p>Etiquetas: |
-
-            {% for etiq in evento.etiquetas %}
-                {{etiq}} |
-            {% endfor %}
-            
+            <p>Etiquetas: {{evento.etiquetas}}</p>           
         </div>
         {% endif %}
         
