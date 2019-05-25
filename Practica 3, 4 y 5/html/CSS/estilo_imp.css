@@ -1,0 +1,118 @@
+body {
+	color: black;
+}
+
+* {
+  	box-sizing: border-box;
+  	font-family: times;
+}
+
+header {
+	border: 6px solid black;
+	border-radius: 20px;
+	margin: 3%;
+	text-align: center;
+}
+
+header > h1 {
+	font-size: 5vw;
+	font-style: italic;
+	text-align: center;
+	text-decoration-line: overline underline;
+	color: black;
+}
+
+header > img{
+	float:left;
+	width: 7.8%;
+	margin: 3.5%;
+}
+
+.izquierda,.icono,.menu,#Comentarios,#b_comentarios,#galeria_todo,#b_comentarios,#video_evento{
+	display: none;
+}
+
+a:link {
+	text-decoration: none;
+  	color: black;
+}
+
+a:visited {
+	text-decoration: none;
+	color: black;
+}
+
+.cuerpo {
+	margin: 3%;
+	overflow: hidden;
+	display:flex;
+}
+
+.derecha {
+	width: 100%;
+	float:right;
+	border: 6px solid black;
+	border-radius: 20px;
+	text-align: center;
+	font-size:1.2vw;
+}
+
+.derecha img{
+	width: 100%;
+}
+
+.derecha {
+	display:table-cell;
+}
+
+#contenido_ev{
+	padding:0 20px 20px 20px;
+}
+
+#cuerpo_evento{
+	column-count: 2;
+	column-gap: 5%;
+	column-rule-style: solid;
+}
+
+.evento{
+	font-size: 2vw;
+}
+
+#img_ev1{
+  	width: 100%;
+  	background-color: white;
+}
+
+#url_video{
+	margin-top: 3%;
+}
+
+#etiquetas{
+	font-size:18px;
+}
+
+#fecha_p_m{
+	float:right;
+	font-size:15px;
+}
+
+
+footer {
+	border: 6px solid black;
+	border-radius: 15px;
+	text-align: center;
+	margin: 3%;
+	overflow: hidden;
+	font-size: 1.2vw;
+	font-style: bold;
+}
+
+footer p{
+	float:left;
+}
+
+footer div{
+	margin:0;
+	float:right;
+}

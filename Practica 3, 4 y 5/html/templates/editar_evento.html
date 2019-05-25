@@ -1,0 +1,35 @@
+{% extends 'padre.html' %}
+
+{% block principal %}
+<div class="gestion_evento">
+    <h2>Editar evento</h2>
+
+    <form action="../PHP/editar_evento.php" method="post">
+        <p>Nombre del evento: <input type="text" class="campos" name="evento[nombre]" value="{{gestion.evento.nombre}}"/></p>
+        <p>Organizador: <input type="text" class="campos" name="evento[organizador]" value="{{gestion.evento.organizador}}"/></p>
+        <p>Fecha: <input type="text" class="campos" name="evento[fecha]" value="{{gestion.evento.fecha}}""/></p>
+        <p>Texto: <textarea class="campos" name="evento[texto]">{{gestion.evento.texto}}</textarea></p>
+        <p>Imagen de la portada: <input type="text" class="campos" name="evento[imagen]" value="{{gestion.evento.imagen}}""/></textarea></p>
+        <p>Etiquetas separadas por una coma: <input type="text" class="campos" name="evento[etiquetas]" value="{{gestion.evento.etiquetas}}"></p>
+        <p>Imagenes dentro del evento:
+            <p>Imagen y Creditos: </p>
+            <input type="text" class="campos" name="evento[imagenes][0][enlace_i]">
+            <input type="text" class="campos" name="evento[imagenes][0][creditos]">
+            <input type="hidden" name="evento[imagenes][0][id]" value="{{gestion.evento.id}}"/>
+            
+            {% for imagen in gestion.evento.imagenes %}
+            <p>Imagen y Creditos: </p>
+            <input type="text" class="campos" name="evento[imagenes][{{loop.index}}][enlace_i]" value="{{imagen.enlace_i}}">
+            <input type="text" class="campos" name="evento[imagenes][{{loop.index}}][creditos]" value="{{imagen.creditos}}">
+            <input type="hidden" name="evento[imagenes][{{loop.index}}][id]" value="{{imagen.id}}"/>
+            {% endfor %}
+        </p>
+        <button id="boton_editar_evento" type="submit" name="evento[id]" value="{{gestion.evento.id}}">Guardar</button>
+    </form>
+    <form action="../PHP/editar_evento.php?id={{gestion.evento.id}}" method="post">
+        <button id="b_cancelar" type="submit" name="b_editar_evento" value="cancelar">Cancelar</button>
+    </form>
+  
+
+</div>
+{% endblock %}

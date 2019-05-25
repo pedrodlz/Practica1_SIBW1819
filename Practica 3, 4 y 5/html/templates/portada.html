@@ -1,0 +1,10 @@
+{% extends 'padre.html' %}
+{% block principal %}
+<h2> Eventos disponibles </h2>
+    {% for evento in eventos %}
+        <section >
+            <a href="http://localhost:8080/PHP/evento.php?evento={{evento.id}}"><img src={{evento.imagen}} alt={{evento.id}}></a>
+            <a href="http://localhost:8080/PHP/evento.php?evento={{evento.id}}">{{evento.nombre}}</a>
+        </section>
+    {% endfor %}
+{% endblock %}

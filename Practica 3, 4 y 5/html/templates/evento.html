@@ -1,0 +1,102 @@
+{% extends 'padre.html' %}
+
+{% block funciones %}
+<script src="../JS/funciones.js"></script>
+<script src="../JS/galeria.js"></script>
+{% endblock %}
+
+{% block principal %}
+<div class="evento">
+    <h2>{{evento.nombre}}</h2>
+    {% if tipo_usuario == "gestor sitio" or tipo_usuario == "superusuario"%}
+    <div>
+        <form action="../PHP/gestion_evento.php?evento={{evento.id}}" method="post">
+            <button class="b_gestion_ev" type="submit" name="accion_ev" value="Editar" >Editar</button>
+            <button class="b_gestion_ev" type="submit" name="accion_ev" value="Eliminar" >Eliminar</button>
+        </form>
+    </div>
+    {% endif %}
+    <div id="contenido_ev">
+        <h3>{{evento.organizador}}</h3>
+        <h4>{{evento.fecha}}</h4>
+
+        <a href="{{evento.imagenes[0].enlace_i}}">
+            <div id="img_ev1">
+                <img src="../{{evento.imagenes[0].enlace_i}}" alt="img_evento">
+                <div class="cred_foto"><p>{{evento.imagenes[0].creditos}}</p></div>
+            </div>
+        </a>
+
+        <div id="cuerpo_evento">
+            {{evento.texto|raw|nl2br}}
+        </div>
+
+        {% if evento.imagenes|length >1 %}
+        <form name="galeria" id="galeria_todo">
+            <input type="button" value='&lt;&lt;' onclick="atras({{evento.imagenes|json_encode()}})">
+            <img src="../{{evento.imagenes[0].enlace_i}}" id="galeria">
+            <input type="button" value="&gt;&gt;" onclick="adelante({{evento.imagenes|json_encode()}})">
+        </form>
+        {% endif %}
+
+        {% if evento.video is not empty %}
+        <video id="video_evento" src="../{{evento.video}}" type="video/mp4" controls>
+            Tu navegador no implementa el elemento <code>video</code>.
+        </video>
+        <div id="url_video">URL video: {{evento.video}}</div>            
+        {% endif %}
+
+        {% if evento.etiquetas is not empty %}
+        <div id="etiquetas">
+            <p>Etiquetas: {{evento.etiquetas}}</p>           
+        </div>
+        {% endif %}
+        
+        <div id="fecha_p_m">
+            <p>Fecha de publicacion o ultima modificacion: {{evento.fecha_p_m}}</p>
+        </div>
+    </div>
+
+    <div>
+    	<a class="icono" href="http://localhost:8080/PHP/evento_imprimir.php?imp={{evento.id}}">
+        	<img src="../img/imprimir.jpeg" alt="imprimir">
+        </a>
+        <input type="button" class="icono" id="facebook" onClick="compartir('Facebook','{{evento.nombre}}','{{evento.imagen}}')">
+        <input type="button" class="icono" id="twitter" onClick="compartir('Twitter','{{evento.nombre}}','{{evento.imagen}}')">
+    </div>
+</div>
+{% endblock %}
+
+{% block zona_comentarios %}
+<button id="b_comentarios" type="button" onclick="boton()"> &lt; </button>
+<div id="Comentarios">
+    <h2> Comentarios </h2>
+        {% for com in comentarios %}
+            <div class="coment">
+                <p class="autor_com">{{com["nombre"]}} </p>
+                    <p class="autor_com">{{com["editado"]}}</p>
+                <p class="fecha_com">{{com["fecha"]}}</p>
+                <p class="texto_com">{{com["cuerpo"]}}</p>
+                {% if tipo_usuario == "moderador" or tipo_usuario == "superusuario"%}
+                <form action="gestion_comentarios.php?id_comentario={{com.id_comentario}}&id_evento={{evento.id}}" method="post">
+                    <button type="submit" name="b_gestion_comentarios" value="Editar">Editar</button>
+                    <button type="submit" name="b_gestion_comentarios" value="Eliminar">Eliminar</button>
+                </form>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <div id="mensaje_error">{{error}}</div>
+
+        {% if tipo_usuario != "anonimo" %}
+        <form action="añadir_comentario.php/?id={{evento.id}}" id="formulario" method="post">
+            <p>Nombre: <input type="text" class="campos" name="nombre_f"/></p>
+            <p>Email: <input type="email" class="campos" name="email_f"/></p>
+            <p>Cuerpo: <textarea name="cuerpo_f" id="cuerpo_f" onkeydown="censurar({{prohibidas|json_encode()}})"/></textarea></p>
+            <p><input type="submit" id="b_enviar" value="Enviar"/></p>
+        </form>
+        {%else%}
+        <div id="mensaje_error">Debe iniciar sesión para comentar</div>
+        {% endif %}
+</div>
+{% endblock %}

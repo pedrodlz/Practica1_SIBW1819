@@ -1,0 +1,9 @@
+{% extends 'padre.html' %}
+{% block principal %}
+<div class="evento">
+	<h2> {{nombre}} </h2>
+	<p id="contenido_ev" class="contenido_gen">
+		{{contenido|raw|nl2br}}
+	</p>
+</div>
+{% endblock %}

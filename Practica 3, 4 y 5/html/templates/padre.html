@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Eventos de Videojuegos</title>
+		<link rel="stylesheet" type="text/css" href="{{css}}"></link>
+	    {% block funciones %}{% endblock %}
+    </head>
+	<body>
+        <header>
+        	{% block cabecera %}
+            <img src="../img/icon.png" alt="Icono de Videojugones">
+            <h1> VIDEOJUGONES </h1>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="http://localhost:8080">Home</a></li>
+                    {% for p in otras %}
+                    <li><a href="http://localhost:8080/PHP/general.php?general={{p.enlace_o}}">{{p.nombre}}</a></li>
+                    {% endfor %}
+                    <li id="sesion"><a href="http://localhost:8080/PHP/{{entrar_cerrar_sesion}}">{{sesion_abierta_cerrada}}</a></li>  
+                    {% if entrar_cerrar_sesion != "login.php"%}
+                    <li id="menu_panel_control"><a href="http://localhost:8080/PHP/panel_control.php">Panel de control</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% endblock %}
+        </header> 
+
+        <div class="cuerpo">
+            <div class="izquierda">
+                <h2>Enlaces</h2>
+                <ul>
+                    <li><a href="https://www.nintendo.es">Nintendo</a></li>
+                    <li><a href="https://www.pokemon.com/es/">Pokemon</a></li>
+                    <li><a href="https://www.minecraft.net/es-es/">Minecraft</a></li>
+                    <li><a href="https://euw.leagueoflegends.com/es/">League of Legends</a></li>
+                    <li><a href="https://etsiit.ugr.es/">ETSIIT</a></li>
+                </ul>
+            </div>
+
+            <main class="derecha">
+            	{% block principal %}
+            	{% endblock %}
+            </main>
+
+            {% block zona_comentarios %}
+            {% endblock %}
+        </div>
+
+		<footer>
+			{% block pie %}
+            <p>&copy; 2019</p>
+            <div>
+                <p>Propietarios: Pedro Domínguez López pedrodominguez@correo.ugr.es| Juan Francisco Díaz Moreno juanfrandm98@correo.ugr.es</p>
+            </div>
+            {% endblock %}
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+{% extends 'padre.html' %}
+{% block principal %}
+<div class="panel_control">
+    <h2>Perfil</h2>
+
+    {% if tipo_accion == "ver" %}
+    <div id="informacion_usuario">
+        <p>Nombre de usuario: {{usuario.nombre_usuario}}</p>
+        <p>Email: {{usuario.email}}</p>
+        <p>Nombre completo: {{usuario.nombre_completo}}</p>
+        <p>Fecha de nacimiento: {{usuario.fecha_nacimiento}}</p>
+        <p>Pais: {{usuario.pais}}</p>
+        <p>Tipo de usuario: {{usuario.tipo}}</p>
+        <form action="../PHP/perfil.php" method="post">
+            <button id="b_perfil" type="submit" name="editar_perfil" value="editar" >Editar</button>
+        </form>
+    </div>
+    {% elseif tipo_accion == "editar" %}
+    <form action="../PHP/guardar_perfil.php" method="post">
+        <p>Nombre de usuario: <input type="text" class="campos" name="perfil[nombre_usuario]" value="{{usuario.nombre_usuario}}"/></p>
+        <p>Email: <input type="email" class="campos" name="perfil[email]" value="{{usuario.email}}"/></p>
+        <p>Contraseña: <input type="password" class="campos" name="perfil[contraseña]"/></p>
+        <p>Nombre completo: <input type="text" class="campos" name="perfil[nombre_completo]" value="{{usuario.nombre_completo}}""/></textarea></p>
+        <p>Fecha de nacimiento (YYYY-MM-DD): <input type="text" class="campos" name="perfil[fecha_nacimiento]" value="{{usuario.fecha_nacimiento}}""/></textarea></p>
+        <p>País: <input type="text" class="campos" name="perfil[pais]" value="{{usuario.pais}}""/></textarea></p>
+        <button id="guardar_perfil" type="submit" name="perfil[id_usuario]" value="{{usuario.id_usuario}}">Guardar</button>
+    </form>
+    <form action="../PHP/panel_control.php" method="post">
+        <button id="b_cancelar" type="submit" name="b_cancelar_perfil" value="cancelar">Cancelar</button>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'padre.html' %}
+
+{% block principal %}
+<div class="gestion_evento">
+    <h2>Añadir evento</h2>
+
+    <form action="../PHP/añadir_evento.php" method="post">
+        <p>Nombre del evento: <input type="text" class="campos" name="evento[nombre]"/></p>
+        <p>Organizador: <input type="text" class="campos" name="evento[organizador]"/></p>
+        <p>Fecha: <input type="text" class="campos" name="evento[fecha]"/></p>
+        <p>Texto: <textarea class="campos" name="evento[texto]"></textarea></p>
+        <p>Imagen de la portada: <input type="text" class="campos" name="evento[imagen]"></p>
+        <p>Etiquetas separadas por una coma: <input type="text" class="campos" name="evento[etiquetas]"></p>
+        <p>Imagenes dentro del evento y Creditos: </p>
+        <input type="text" class="campos" name="evento[imagenes][0][enlace_i]">
+        <input type="text" class="campos" name="evento[imagenes][0][creditos]">
+        <button id="boton_añadir_evento" type="submit">Guardar</button>
+    </form>
+    <form action="../PHP/panel_control.php" method="post">
+        <button id="b_cancelar" type="submit" name="b_añadir_evento" value="cancelar">Cancelar</button>
+    </form>
+
+</div>
+{% endblock %}
