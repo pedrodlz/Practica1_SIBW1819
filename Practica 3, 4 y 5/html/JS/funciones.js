@@ -63,3 +63,22 @@ msgWindow.document.write
     	'</BODY>'+
     '</HTML>');
 }
+
+function buscarEventos(busqueda){
+
+	$.ajax({
+		data: {busqueda},
+		url: 'buscar_eventos_ajax.php',
+		type: 'post',
+		success: function(respuesta){
+			procesaBusquedaAjax(respuesta);
+		}
+	});
+}
+
+function procesaBusquedaAjax(respuesta){
+
+	for(i=0; i < respuesta.length;i++){
+
+	}
+}

@@ -15,7 +15,7 @@
             
             if(isset($_POST['busqueda'])){
                 $busqueda = filter_var($_POST['busqueda'],FILTER_SANITIZE_STRING);
-                $eventos = buscarEventos($busqueda);  
+                $eventos = buscarEventosGestor($busqueda);  
             }
 
             echo $twig->render( "buscar_eventos.html", ['css'=>'../CSS/estilo.css',

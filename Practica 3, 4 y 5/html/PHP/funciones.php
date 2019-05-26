@@ -258,7 +258,23 @@
 		return $resultado;
 	}
 
-	function buscarEventos($busqueda){
+	function buscarEventosGestor($busqueda){
+		$bd = conectarBD();
+
+		$orden = "SELECT * 
+							FROM eventos 
+							WHERE 
+								nombre LIKE '%".$busqueda."%' OR
+								organizador LIKE '%".$busqueda."%' OR
+								texto LIKE '%".$busqueda."%' OR
+								etiquetas LIKE '%".$busqueda."%';";
+		$consulta = $bd->query($orden);
+		$resultado = mysqli_fetch_all($consulta,MYSQLI_BOTH);
+
+		return $resultado;
+	}
+
+	function buscarEventosTodos($busqueda){
 		$bd = conectarBD();
 
 		$orden = "SELECT * 
