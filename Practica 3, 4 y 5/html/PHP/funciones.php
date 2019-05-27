@@ -110,7 +110,8 @@
 		$bd = conectarBD();
 
 		$evento['fecha_p_m'] = date('y-m-d h:i:s',time());
-		$orden = "INSERT INTO eventos (id,nombre,organizador,fecha,texto,imagen,fecha_p_m,etiquetas) VALUES (
+		$orden = "INSERT INTO eventos (id,nombre,organizador,fecha,texto,imagen,fecha_p_m,etiquetas,publicado) 
+							VALUES (
 							'".$evento['id']."',
 							'".$evento['nombre']."',
 							'".$evento['organizador']."',
@@ -118,7 +119,8 @@
 							'".$evento['texto']."',
 							'".$evento['imagen']."',
 							'".$evento['fecha_p_m']."',
-							'".$evento['etiquetas']."'
+							'".$evento['etiquetas']."',
+							'".$evento['publicado']."'
 							);";
 
 		$consulta1 = $bd->query($orden);
@@ -138,11 +140,16 @@
 		$bd = conectarBD();
 
 		$evento['fecha_p_m'] = date('y-m-d h:i:s',time());
-		$orden = "UPDATE eventos SET nombre='".$evento[nombre]."',
+		$orden = "UPDATE eventos SET 
+							nombre='".$evento[nombre]."',
 							organizador='".$evento['organizador']."',
-							fecha='".$evento['fecha']."',texto='".$evento['texto']."',
-							imagen='".$evento['imagen']."',fecha_p_m='".$evento['fecha_p_m']."',
-							etiquetas='".$evento['etiquetas']."' WHERE id='".$evento[id]."';";
+							fecha='".$evento['fecha']."',
+							texto='".$evento['texto']."',
+							imagen='".$evento['imagen']."',
+							fecha_p_m='".$evento['fecha_p_m']."',
+							etiquetas='".$evento['etiquetas']."',
+							publicado='".$evento[publicado]."'
+							WHERE id='".$evento[id]."';";
 
 		$consulta1 = $bd->query($orden);
 
