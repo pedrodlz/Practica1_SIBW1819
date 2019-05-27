@@ -4,7 +4,7 @@
 	function obtienePortada(){
 		$bd = conectarBD();
 
-		$orden = "SELECT id,nombre,imagen FROM eventos;";
+		$orden = "SELECT id,nombre,imagen FROM eventos WHERE publicado='1';";
 		$consulta = $bd->query($orden);
 		$resultado = mysqli_fetch_all($consulta,MYSQLI_BOTH);
 
@@ -287,10 +287,11 @@
 		$orden = "SELECT * 
 							FROM eventos 
 							WHERE 
+								publicado='1' AND (
 								nombre LIKE '%".$busqueda."%' OR
 								organizador LIKE '%".$busqueda."%' OR
 								texto LIKE '%".$busqueda."%' OR
-								etiquetas LIKE '%".$busqueda."%';";
+								etiquetas LIKE '%".$busqueda."%');";
 		$consulta = $bd->query($orden);
 		$resultado = mysqli_fetch_all($consulta,MYSQLI_BOTH);
 
