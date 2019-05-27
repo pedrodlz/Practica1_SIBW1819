@@ -1,10 +1,21 @@
 {% extends 'padre.html' %}
+{% block funciones %}
+<script src="../JS/funciones.js"></script>
+{% endblock %}
+
 {% block principal %}
 <h2> Eventos disponibles </h2>
+
+<input class="campo_busqueda" type="search" name="busqueda" id="input_busqueda" onkeydown="buscarEventos()">
+<div id="resultado_busqueda"></div>
+
+<div id="portada">
     {% for evento in eventos %}
-        <section >
-            <a href="http://localhost:8080/PHP/evento.php?evento={{evento.id}}"><img src={{evento.imagen}} alt={{evento.id}}></a>
-            <a href="http://localhost:8080/PHP/evento.php?evento={{evento.id}}">{{evento.nombre}}</a>
-        </section>
+    <section >
+        <a href="http://localhost:8080/PHP/evento.php?evento={{evento.id}}"><img src={{evento.imagen}} alt={{evento.id}}></a>
+        <a href="http://localhost:8080/PHP/evento.php?evento={{evento.id}}">{{evento.nombre}}</a>
+    </section>
     {% endfor %}
+</div>
+
 {% endblock %}

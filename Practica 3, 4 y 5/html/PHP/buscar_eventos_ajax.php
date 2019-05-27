@@ -1,5 +1,5 @@
 <?php
-
+    require( "funciones.php" );
     header('Content-Type: application/json');
 
     include_once("plantilla_sesion.php");

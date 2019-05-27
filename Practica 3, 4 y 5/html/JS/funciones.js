@@ -64,13 +64,19 @@ msgWindow.document.write
     '</HTML>');
 }
 
-function buscarEventos(busqueda){
+function buscarEventos(){
+
+	busqueda = $("#input_busqueda").val();
 
 	$.ajax({
 		data: {busqueda},
-		url: 'buscar_eventos_ajax.php',
+		url: 'PHP/buscar_eventos_ajax.php',
 		type: 'post',
+		beforeSend: function(){
+			$("#resultado_busqueda").html("Buscando...");
+		},
 		success: function(respuesta){
+			$("#portada").hide();
 			procesaBusquedaAjax(respuesta);
 		}
 	});
@@ -78,7 +84,13 @@ function buscarEventos(busqueda){
 
 function procesaBusquedaAjax(respuesta){
 
-	for(i=0; i < respuesta.length;i++){
+	resultado ="";
 
+	for(i=0; i < respuesta.length;i++){
+		resultado += "<section><a href='http://localhost:8080/PHP/evento.php?evento=" + respuesta[i].id + 
+		"'><img src='"+ respuesta[i].imagen+"' alt='"+ respuesta[i].id+
+		"'></a><a href='http://localhost:8080/PHP/evento.php?evento="+respuesta[i].id+"'>"+respuesta[i].nombre+"</a></section>";
 	}
+
+	$("#resultado_busqueda").html(resultado);
 }
